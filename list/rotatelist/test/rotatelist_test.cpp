@@ -3,35 +3,40 @@
 #include "gtest/gtest.h"
 
 #include <iostream>
+#include <vector>
+#include <string>
+#include <random>
 // uncomment to disable assert()
 // #define NDEBUG
 #include <cassert>
 
+/*
 #include <array>
-#include <vector>
 #include <forward_list>
 #include <list>
 #include <deque>
-
 #include <set>    // multiset is also defined here
 #include <map>    // multimap is also defined here
 #include <unordered_set>  // unordered_multiset is also defined here
 #include <unordered_map>  // unordered_multimap is also defined here
+*/
 
 /*
  * stack          - use standard containers std::vector, std::deque and std::list
  * queue          - use standard containers std::deque and std::list
  * priority_queue - use standard containers std::vector and std::deque
  * */
+/*
 #include <stack>       // stack
 #include <queue>       // queue + priority_queue
-
 #include <algorithm>
 #include <random>
 #include <string>
 #include <memory>
 #include <random>
+*/
 
+/*
 // hackerrank header
 #include <map>
 #include <set>
@@ -88,10 +93,11 @@ using namespace std;
 //#define INT_MIN -2147483648
 //#define pi acos(-1.0)
 //#define E 2.71828182845904523536
+*/
 
 using namespace std;
 
-#include "../src/reverselinkedlist.h"
+#include "../src/rotatelist.h"
 
 /*
  Choose auto x when you want to work with copies.
@@ -170,24 +176,31 @@ string gen_random(const int len)
 	return str;
 }
 
-TEST(reverselinkedlist, normal1)
+TEST(rotatelist, normal1)
 {
-	reverselinkedlist tc;
+	rotatelist tc;
 
 	List<int> list(10,1,10);
 	ListNode<int> *head = list.head;
 	head->print_list();
 
-	head = tc.ReverseList(head);
-	head->print_list();
-
-	head = tc.ReverseList(head);
-	head->print_list();
+	ListNode<int> *ans = tc.RotateList(head, 2);
+	ans->print_list();
 }
+
+TEST(rotatelist, normal2)
+{
+	rotatelist tc;
+
+	ListNode<int> *ans = tc.RotateList(nullptr, 2);
+	ASSERT_EQ(nullptr, ans);
+}
+
+
+
 
 GTEST_API_ int main(int argc, char **argv)
 {
 	::testing::InitGoogleTest(&argc, argv);
 	return RUN_ALL_TESTS();
 }
-

@@ -6,31 +6,31 @@
 // uncomment to disable assert()
 // #define NDEBUG
 #include <cassert>
-
-#include <array>
-#include <vector>
-#include <forward_list>
-#include <list>
-#include <deque>
-
-#include <set>    // multiset is also defined here
-#include <map>    // multimap is also defined here
-#include <unordered_set>  // unordered_multiset is also defined here
-#include <unordered_map>  // unordered_multimap is also defined here
-
-/*
- * stack          - use standard containers std::vector, std::deque and std::list
- * queue          - use standard containers std::deque and std::list
- * priority_queue - use standard containers std::vector and std::deque
- * */
-#include <stack>       // stack
-#include <queue>       // queue + priority_queue
-
-#include <algorithm>
-#include <random>
-#include <string>
-#include <memory>
-#include <random>
+//
+//#include <array>
+//#include <vector>
+//#include <forward_list>
+//#include <list>
+//#include <deque>
+//
+//#include <set>    // multiset is also defined here
+//#include <map>    // multimap is also defined here
+//#include <unordered_set>  // unordered_multiset is also defined here
+//#include <unordered_map>  // unordered_multimap is also defined here
+//
+///*
+// * stack          - use standard containers std::vector, std::deque and std::list
+// * queue          - use standard containers std::deque and std::list
+// * priority_queue - use standard containers std::vector and std::deque
+// * */
+//#include <stack>       // stack
+//#include <queue>       // queue + priority_queue
+//
+//#include <algorithm>
+//#include <random>
+//#include <string>
+//#include <memory>
+//#include <random>
 
 using namespace std;
 

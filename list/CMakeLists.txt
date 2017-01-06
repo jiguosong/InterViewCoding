@@ -12,3 +12,4 @@ add_subdirectory(removeNthNodefromend)
 add_subdirectory(linkedlistcycle)
 
 add_subdirectory(removeduplicats)
+add_subdirectory(rotatelist)

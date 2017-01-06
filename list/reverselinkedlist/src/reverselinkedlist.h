@@ -6,7 +6,7 @@
 using std::vector;
 using std::string;
 
-#include "../Node.h"
+#include "List.h"
 
 class reverselinkedlist {
 public:

@@ -2,7 +2,7 @@
 
 MYCM=$1
 
-bpath='/home/songjiguo/ClionProjects/InterviewCoding'
+bpath='/home/songjiguo/ClionProjects/InterViewCoding'
 
 mkdir -p $MYCM/src
 mkdir -p $MYCM/test

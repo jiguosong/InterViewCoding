@@ -7,54 +7,54 @@
 // #define NDEBUG
 #include <cassert>
 
-#include <array>
-#include <vector>
-#include <forward_list>
-#include <list>
-#include <deque>
-
-#include <set>    // multiset is also defined here
-#include <map>    // multimap is also defined here
-#include <unordered_set>  // unordered_multiset is also defined here
-#include <unordered_map>  // unordered_multimap is also defined here
-
-/*
- * stack          - use standard containers std::vector, std::deque and std::list
- * queue          - use standard containers std::deque and std::list
- * priority_queue - use standard containers std::vector and std::deque
- * */
-#include <stack>       // stack
-#include <queue>       // queue + priority_queue
-
-#include <algorithm>
-#include <random>
-#include <string>
-#include <memory>
-#include <random>
-
-// hackerrank header
-#include <map>
-#include <set>
-#include <list>
-#include <cmath>
-#include <ctime>
-#include <deque>
-#include <queue>
-#include <stack>
-#include <string>
-#include <bitset>
-#include <cstdio>
-#include <limits>
-#include <vector>
-#include <climits>
-#include <cstring>
-#include <cstdlib>
-#include <fstream>
-#include <numeric>
-#include <sstream>
-#include <iostream>
-#include <algorithm>
-#include <unordered_map>
+//#include <array>
+//#include <vector>
+//#include <forward_list>
+//#include <list>
+//#include <deque>
+//
+//#include <set>    // multiset is also defined here
+//#include <map>    // multimap is also defined here
+//#include <unordered_set>  // unordered_multiset is also defined here
+//#include <unordered_map>  // unordered_multimap is also defined here
+//
+///*
+// * stack          - use standard containers std::vector, std::deque and std::list
+// * queue          - use standard containers std::deque and std::list
+// * priority_queue - use standard containers std::vector and std::deque
+// * */
+//#include <stack>       // stack
+//#include <queue>       // queue + priority_queue
+//
+//#include <algorithm>
+//#include <random>
+//#include <string>
+//#include <memory>
+//#include <random>
+//
+//// hackerrank header
+//#include <map>
+//#include <set>
+//#include <list>
+//#include <cmath>
+//#include <ctime>
+//#include <deque>
+//#include <queue>
+//#include <stack>
+//#include <string>
+//#include <bitset>
+//#include <cstdio>
+//#include <limits>
+//#include <vector>
+//#include <climits>
+//#include <cstring>
+//#include <cstdlib>
+//#include <fstream>
+//#include <numeric>
+//#include <sstream>
+//#include <iostream>
+//#include <algorithm>
+//#include <unordered_map>
 
 using namespace std;
 
@@ -91,8 +91,8 @@ using namespace std;
 
 using namespace std;
 
-#include "linkedlistcycle.h"
-#include "../Node.h"
+#include "../src/linkedlistcycle.h"
+#include "List.h"
 
 /*
  Choose auto x when you want to work with copies.

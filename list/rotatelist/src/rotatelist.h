@@ -1,5 +1,5 @@
-#ifndef linkedlistcycle_H_
-#define linkedlistcycle_H_
+#ifndef rotatelist_H_
+#define rotatelist_H_
 
 #include <vector>
 #include <string>
@@ -9,11 +9,11 @@ using std::string;
 
 #include "List.h"
 
-class linkedlistcycle {
+class rotatelist {
 public:
     void dummy();
 
-    bool hasCycle(ListNode<int> *head);
+    ListNode<int> *RotateList(ListNode<int> *list, int k);
 
 private:
 
