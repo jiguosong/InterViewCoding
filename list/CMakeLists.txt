@@ -13,3 +13,4 @@ add_subdirectory(linkedlistcycle)
 
 add_subdirectory(removeduplicats)
 add_subdirectory(rotatelist)
+add_subdirectory(partitionlist)
