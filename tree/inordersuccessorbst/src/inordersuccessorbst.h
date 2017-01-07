@@ -8,7 +8,7 @@
 #ifndef INORDERSUCCESSORBST_H_
 #define INORDERSUCCESSORBST_H_
 
-#include "../Tree.h"
+#include "Tree.h"
 
 class inordersuccessorbst {
 public:
