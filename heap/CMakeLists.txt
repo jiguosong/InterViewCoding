@@ -1,1 +1,2 @@
 add_subdirectory(findstreammedian)
+add_subdirectory(distributemachinetoclusters)
