@@ -2,19 +2,32 @@
 #define binaryindextree_H_
 
 #include <vector>
+#include <iostream>
+
 using std::vector;
 
-class binaryindextree {
+class BinaryIndexTree {
 public:
-	void dummy();
-	binaryindextree(vector<int> &nums);
-	void update(int i, int val);
-	int sumRange(int i, int j);
-	int getSum(int i);
+    void dummy();
+
+    BinaryIndexTree(vector<int> &nums);
+
+    void update(int i, int val);
+
+    int sumRange(int i, int j);
+
+    int getSum(int i);
+
+    void printTree()
+    {
+        for (int i = 1; i <= sz_; i++)
+            std::cout << tree_[i] << " ";
+    }
+
 private:
-	vector<int> nums_;
-	vector<int> bits_;
-	int sz_;
+    vector<int> tree_;
+    vector<int> num_;
+    int sz_;
 };
 
 #endif

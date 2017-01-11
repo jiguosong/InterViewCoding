@@ -16,38 +16,58 @@ sumRange(0, 2) -> 8
 
 #include "binaryindextree.h"
 
-void binaryindextree::dummy() 
+
+void BinaryIndexTree::dummy()
 {
+
 }
 
-binaryindextree::binaryindextree(vector<int> &arrays)
+BinaryIndexTree::BinaryIndexTree(vector<int> &nums)
 {
-	sz_ = arrays.size()+1;    // dummy root. We track the difference
-	nums_.resize(sz_);
-	bits_.resize(sz_);
-	for(int i = 0; i < sz_; ++i) update(i, arrays[i]);
+    sz_ = nums.size();
+    tree_ = vector<int>(sz_ + 1, 0);
+    num_ = vector<int>(sz_ + 1, 0);
+    for (int i = 0; i < nums.size(); ++i) {
+        update(i, nums[i]);
+    }
 }
 
-void binaryindextree::update(int idx, int val)
+void BinaryIndexTree::update(int i, int val)
 {
-	++idx;
-	int diff = val - nums_[idx];
-	for(int j = idx; j < sz_; j += j&(-j)) {
-		bits_[j] += diff;    // propogate the difference to the parent
-	}
-	nums_[idx] = val;
+    ++i;    // num_[0] is the dummy node
+    int diff = val - num_[i];
+    num_[i] = val;
+    while (i <= sz_) {
+        tree_[i] += diff;
+        i += i & (-i);
+    }
 }
 
-int binaryindextree::sumRange(int i, int j)
+int BinaryIndexTree::getSum(int i)
 {
-	return getSum(j+1) - getSum(i);
+    ++i;
+    int sum = 0;
+    while (i > 0) {
+        sum += tree_[i];
+        i -= i & (-i);
+    }
+
+    return sum;
 }
 
-int binaryindextree::getSum(int idx)
+int BinaryIndexTree::sumRange(int i, int j)
 {
-	int res = 0;
-	for(int j = idx; j > 0; j -= j&(-j)) {
-		res += bits_[j];
-	}
-	return res;
+    if (i == 0) return getSum(j);
+
+    return getSum(j) - getSum(i - 1);
 }
+
+
+
+
+
+
+
+
+
+

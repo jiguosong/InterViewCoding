@@ -2,13 +2,32 @@
 #define segmenttree_H_
 
 #include <vector>
+
 using std::vector;
 
 class segmenttree {
 public:
-	void dummy();
-private:
+    void dummy();
 
+    void BuildSegTree(vector<int> &data, int treeidx, int low, int high);
+
+    int QuerySegTree(int treeidx, int low, int high, int i, int j);
+
+    void UpdateSegTree(int treeidx, int low, int high, int arrayIdx, int val);
+
+    vector<int> getTree()
+    { return tree; };
+
+    segmenttree(vector<int> &data)
+    {
+        size = data.size();
+        tree.resize(4 * size, 0);
+        BuildSegTree(data, 0, 0, size - 1);
+    }
+
+private:
+    vector<int> tree;
+    int size;
 };
 
 #endif

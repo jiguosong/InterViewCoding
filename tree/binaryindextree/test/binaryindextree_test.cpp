@@ -178,7 +178,12 @@ string gen_random(const int len)
 
 TEST(binaryindextree, normal1)
 {
-	binaryindextree tc;
+	vector<int> nums = {1,3,5};
+	BinaryIndexTree tc(nums);
+
+	cout << tc.sumRange(0, 2) << endl;
+	tc.update(1, 2);
+	cout << tc.sumRange(0, 2) << endl;
 
 }
 
