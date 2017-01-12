@@ -26,3 +26,5 @@ add_subdirectory(searchRangeBST)
 add_subdirectory(lcaBST)
 add_subdirectory(lcaBT)
 add_subdirectory(bstiterator)
+add_subdirectory(longestpathwithuniqueval)
+

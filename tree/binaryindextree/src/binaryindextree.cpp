@@ -10,6 +10,8 @@ Given nums = [1, 3, 5]
 sumRange(0, 2) -> 9
 update(1, 2)
 sumRange(0, 2) -> 8
+
+ // https://discuss.leetcode.com/topic/48052/segment-tree-binary-indexed-tree-and-the-simple-way-using-buffer-to-accelerate-in-c-all-quite-efficient/2
 */
 
 /*Note: this can be extended to 2D as well*/

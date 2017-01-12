@@ -74,8 +74,27 @@ static void getUniqueArray(const unsigned int size, const int lower_bound,
 
     if (sorted == true)
         std::sort(init_array.begin(), init_array.end());
-
 }
+
+
+static void getRandomArray(const unsigned int size, const int lower_bound,
+                           const int upper_bound, vector<int> &init_array, bool sorted) {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<int> dist(lower_bound, upper_bound);
+
+    std::set<int> myset;
+    for (int i = 0; i < size; ++i) {
+        auto e = dist(gen);
+        assert(e >= lower_bound && e <= upper_bound);
+        init_array.push_back(e);
+    }
+
+    if (sorted == true)
+        std::sort(init_array.begin(), init_array.end());
+}
+
+
 
 static TreeNode *randomBST(const unsigned int size, const int lower_bound,
                            const int upper_bound) {
@@ -100,6 +119,19 @@ static TreeNode *randomBT(const unsigned int size, const int lower_bound,
     getUniqueArray(size, lower_bound, upper_bound, init_array, sorted);
     return generateTree_helper(init_array, 0, init_array.size() - 1);
 }
+
+
+static TreeNode *randomRepBT(const unsigned int size, const int lower_bound,
+                          const int upper_bound) {
+    assert(size != 0);
+    unsigned int range = upper_bound - lower_bound + 1;
+
+    vector<int> init_array;
+    bool sorted = false;
+    getRandomArray(size, lower_bound, upper_bound, init_array, sorted);
+    return generateTree_helper(init_array, 0, init_array.size() - 1);
+}
+
 
 // Pretty Print
 
