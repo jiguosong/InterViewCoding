@@ -180,6 +180,8 @@ TEST(flattenBTtolinkedlist, normal1)
 {
 	flattenBTtolinkedlist tc;
 
+	//tc.flattendBTlist();
+
 }
 
 GTEST_API_ int main(int argc, char **argv)

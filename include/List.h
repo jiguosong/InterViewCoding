@@ -164,4 +164,48 @@ ListNode<T> *List<T>::GenerateList() {
     return head;
 }
 
+
+template<class T>
+ListNode<T> *merge(ListNode<T> *l1, ListNode<T> *l2)
+{
+    ListNode<T> *dummy = new ListNode<T>(-1);
+    ListNode<T> *curr = dummy;
+
+    while(l1 && l2) {
+        if(l1->data < l2->data) {
+            curr->next = l1;
+            l1 = l1->next;
+        } else {
+            curr->next = l2;
+            l2 = l2->next;
+        }
+        curr = curr->next;
+    }
+
+    if(l1) curr->next = l1;
+    else if(l2) curr->next = l2;
+
+    ListNode<T> *res = dummy->next;
+    delete dummy;
+    return res;
+}
+
+template<class T>
+ListNode<T> *SortList(ListNode<T> *head)
+{
+    if (head == nullptr || head->next == nullptr) return head;
+    ListNode<T> *fast, *slow, *prev;
+    fast = slow = prev = head;
+
+    while (fast && fast->next) {
+        prev = slow;
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
+    prev->next = nullptr;
+    return merge(SortList(head), SortList(slow));
+}
+
+
 #endif /* LIST_NODE_H_ */

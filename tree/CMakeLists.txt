@@ -28,3 +28,5 @@ add_subdirectory(lcaBT)
 add_subdirectory(bstiterator)
 add_subdirectory(longestpathwithuniqueval)
 
+add_subdirectory(buildtreefromsortedarray)
+add_subdirectory(buildtreefromsortedlist)

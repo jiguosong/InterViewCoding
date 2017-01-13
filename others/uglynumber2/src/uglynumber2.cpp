@@ -24,6 +24,8 @@ int uglynumber2::FindNthUglyNumber(int n) {
         b = res[idxb] * 3;
         c = res[idxc] * 5;
         int min = std::min(a, std::min(b, c));
+
+        // !! this is important to use 3 if, not using else!!! Both can be updated
         if(min == a) ++idxa;
         if(min == b) ++idxb;
         if(min == c) ++idxc;

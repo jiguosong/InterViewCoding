@@ -3,7 +3,7 @@
 
 #include <vector>
 using std::vector;
-#include "../Tree.h"
+#include "Tree.h"
 
 class flattenBTtolinkedlist {
 public:
