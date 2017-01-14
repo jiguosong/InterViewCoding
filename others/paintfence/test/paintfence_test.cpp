@@ -3,56 +3,120 @@
 #include "gtest/gtest.h"
 
 #include <iostream>
+#include <vector>
+#include <string>
+#include <random>
 // uncomment to disable assert()
 // #define NDEBUG
 #include <cassert>
 
+/*
 #include <array>
-#include <vector>
 #include <forward_list>
 #include <list>
 #include <deque>
-
 #include <set>    // multiset is also defined here
 #include <map>    // multimap is also defined here
 #include <unordered_set>  // unordered_multiset is also defined here
 #include <unordered_map>  // unordered_multimap is also defined here
+*/
 
 /*
  * stack          - use standard containers std::vector, std::deque and std::list
  * queue          - use standard containers std::deque and std::list
  * priority_queue - use standard containers std::vector and std::deque
  * */
+/*
 #include <stack>       // stack
 #include <queue>       // queue + priority_queue
-
 #include <algorithm>
 #include <random>
 #include <string>
 #include <memory>
 #include <random>
+*/
+
+/*
+// hackerrank header
+#include <map>
+#include <set>
+#include <list>
+#include <cmath>
+#include <ctime>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <string>
+#include <bitset>
+#include <cstdio>
+#include <limits>
+#include <vector>
+#include <climits>
+#include <cstring>
+#include <cstdlib>
+#include <fstream>
+#include <numeric>
+#include <sstream>
+#include <iostream>
+#include <algorithm>
+#include <unordered_map>
 
 using namespace std;
 
-#include "../src/sqrtx.h"
+// UVA header examples
+#include <iostream>
+#include <cstdio>
+#include <algorithm>
+#include <cstring>
+#include <string>
+#include <cctype>
+#include <cassert>
+#include <stack>
+#include <queue>
+#include <list>
+#include <vector>
+#include <map>
+#include <unordered_map>
+#include <sstream>
+#include <cmath>
+#include <bitset>
+#include <utility>
+#include <set>
+#include <unordered_set>
+#include <numeric>
+#include <time.h>
+#include <fstream>
+#include <limits>
+#include <iomanip>
+#include <iterator>
+//#define INT_MAX 2147483647
+//#define INT_MIN -2147483648
+//#define pi acos(-1.0)
+//#define E 2.71828182845904523536
+*/
 
+using namespace std;
+
+#include "../src/paintfence.h"
 
 /*
-   Choose auto x when you want to work with copies.
-   Choose auto &x when you want to work with original items and may modify them.
-   Choose auto const &x when you want to work with original items and will not modify them 
-*/
+ Choose auto x when you want to work with copies.
+ Choose auto &x when you want to work with original items and may modify them.
+ Choose auto const &x when you want to work with original items and will not modify them
+ */
 template<class T>
 void PrintVector(const vector<T> &vec)
 {
-	for(auto const &v:vec) cout << v << ' ';
+	for (auto const &v : vec)
+		cout << setw(3) << v << ' ';
 	cout << endl;
 }
 
 template<class T>
 void PrintVectorVector(const vector<vector<T>> &vec)
 {
-	for(auto const &v:vec) PrintVector(v);
+	for (auto const &v : vec)
+		PrintVector(v);
 }
 
 template<class T>
@@ -112,21 +176,11 @@ string gen_random(const int len)
 	return str;
 }
 
-TEST(sqrtx, normal1)
+TEST(paintfence, normal1)
 {
-	sqrtx tc;
+	paintfence tc;
 
-	int x = 9;
-	ASSERT_EQ(3, tc.sqrt(x));
-
-}
-
-TEST(sqrtx, normal2)
-{
-	sqrtx tc;
-
-	int x = 999999999;
-	ASSERT_EQ(31622, tc.sqrt(x));
+	cout << tc.WaystoPaintFences(3,2) << endl;
 
 }
 

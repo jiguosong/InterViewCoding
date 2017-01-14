@@ -8,7 +8,7 @@
 #ifndef VALIDBST_H_
 #define VALIDBST_H_
 
-#include "../../Tree.h"
+#include "Tree.h"
 
 class validbst {
 public:

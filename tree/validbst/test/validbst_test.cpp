@@ -176,9 +176,14 @@ string gen_random(const int len)
 	return str;
 }
 
+#include "../../../ClassicAlgorithm/include/shuffle.h"
+#include "../../../ClassicAlgorithm/include/binary_search_tree.h"
+using namespace alg;
+
 TEST(validbst, normal1)
 {
 	validbst tc;
+
 
 }
 

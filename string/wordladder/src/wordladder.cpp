@@ -15,6 +15,7 @@ using std::queue;
 /* Idea: BFS */
 int solution::ladderLength(string beginWord, string endWord, unordered_set<string>& wordDict)
 {
+	if(beginWord == endWord) return 1;
 	unordered_map<string, int> map;
 	queue<string> queue;
 	map[beginWord] = 1;

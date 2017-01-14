@@ -6,7 +6,7 @@
  */
 
 
-#include "wordladder.h"
+#include "../src/wordladder.h"
 #include "gtest/gtest.h"
 
 TEST(testcase_OK1, wordladder)
@@ -19,6 +19,18 @@ TEST(testcase_OK1, wordladder)
 	int len = c.ladderLength(beginWord, endWord, wordDict);
 
 	ASSERT_EQ(len, 5);
+}
+
+TEST(testcase_OK1, wordladder2)
+{
+	solution c;
+	string beginWord = "a";
+	string endWord = "a";
+	unordered_set<string> wordDict = {"b"};
+
+	int len = c.ladderLength(beginWord, endWord, wordDict);
+
+	ASSERT_EQ(len, 1);
 }
 
 GTEST_API_ int main(int argc, char **argv)
