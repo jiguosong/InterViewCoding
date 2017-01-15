@@ -1,3 +1,4 @@
 add_subdirectory(courseschedule)
 add_subdirectory(minimumheighttree)
 add_subdirectory(graphvalidtree)
+add_subdirectory(clonegraph)
