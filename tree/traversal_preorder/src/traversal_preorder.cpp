@@ -5,7 +5,7 @@
  *      Author: songjiguo
  */
 
-#include "traversal_preorder.h"
+#include "../src/traversal_preorder.h"
 #include <stack>
 
 static void preOrder_helper(TreeNode *root, vector<int> &res)

@@ -12,6 +12,7 @@ add_executable(contexpress contexpress.cpp)
 add_executable(traits traits.cpp)
 add_executable(object_layout object_layout.cpp)
 add_executable(STL_datastructure STL_datastructure.cpp)
+add_executable(IKMtest IKMtest.cpp)
 
 add_subdirectory(GotW)
 add_subdirectory(concurrency)

@@ -132,6 +132,20 @@ static TreeNode *randomRepBT(const unsigned int size, const int lower_bound,
     return generateTree_helper(init_array, 0, init_array.size() - 1);
 }
 
+//http://stackoverflow.com/questions/40809916/modify-a-binary-search-tree/40810094#40810094
+static void unbalance(TreeNode **pp) {
+    TreeNode *p;
+    while ((p = *pp)) {
+        if (!p->left) {
+            pp = &p->right;
+        } else {
+            TreeNode *tmp = p->left->right;
+            *pp = p->left;
+            p->left->right = p;
+            p->left = tmp;
+        }
+    }
+}
 
 // Pretty Print
 

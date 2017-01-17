@@ -1,4 +1,5 @@
 add_subdirectory(validbst)
+add_subdirectory(validbalancedBT)
 add_subdirectory(traversal_inorder)
 add_subdirectory(traversal_verticalorder)
 add_subdirectory(traversal_sideview)
@@ -30,3 +31,6 @@ add_subdirectory(longestpathwithuniqueval)
 
 add_subdirectory(buildtreefromsortedarray)
 add_subdirectory(buildtreefromsortedlist)
+add_subdirectory(maxdepthBT)
+add_subdirectory(mindepthBT)
+add_subdirectory(allpathsinBT)

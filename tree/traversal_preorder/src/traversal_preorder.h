@@ -8,7 +8,7 @@
 #ifndef PREORDER_TRAVERSAL_H_
 #define PREORDER_TRAVERSAL_H_
 
-#include "../Tree.h"
+#include "Tree.h"
 
 class preorder_traversal {
 public:
