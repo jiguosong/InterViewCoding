@@ -8,7 +8,7 @@
 #ifndef BUILDTREEFROMPREORDERNORDER_H_
 #define BUILDTREEFROMPREORDERNORDER_H_
 
-#include "../Tree.h"
+#include "Tree.h"
 
 class buildtreefrompreordernorder {
 public:

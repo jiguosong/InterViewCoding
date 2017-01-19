@@ -8,7 +8,7 @@
 #ifndef FINDVALUEINBST_H_
 #define FINDVALUEINBST_H_
 
-#include "../Tree.h"
+#include "Tree.h"
 
 class findvalInBST {
 public:

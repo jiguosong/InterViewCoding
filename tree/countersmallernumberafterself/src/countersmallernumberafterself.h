@@ -14,7 +14,17 @@ using std::vector;
 
 class countersmallernumberafterself {
 public:
-	vector<int> countSmaller(vector<int>& nums);
+    vector<int> countSmaller(vector<int> &nums);
+
+private:
+    struct compareNode {
+        int val, smaller;
+        compareNode *left, *right;
+
+        compareNode(int v, int s) : val(v), smaller(s), left(nullptr), right(nullptr)
+        { }
+    };
+    int insertNode(compareNode *&root, int val);
 };
 
 

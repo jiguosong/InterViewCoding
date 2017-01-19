@@ -7,7 +7,7 @@
 using std::vector;
 using std::string;
 
-#include "../../Tree.h"
+#include "Tree.h"
 
 class lcaBST {
 public:

@@ -9,6 +9,7 @@
 // uncomment to disable assert()
 // #define NDEBUG
 #include <cassert>
+#include <Print.h>
 
 /*
 #include <array>
@@ -97,7 +98,7 @@ using namespace std;
 
 using namespace std;
 
-#include "../src/longestpathwithuniqueval.h"
+#include "../src/twosum.h"
 
 /*
  Choose auto x when you want to work with copies.
@@ -176,36 +177,14 @@ string gen_random(const int len)
 	return str;
 }
 
-TEST(longestpathwithuniqueval, normal1)
+TEST(twosum, normal1)
 {
-	longestpathwithuniqueval tc;
+	twosum tc;
 
-	TreeNode *root = randomRepBT(20, 1, 5);
+	vector<int> nums = {2, 7, 11, 15};
+	vector<int> ans = tc.TwoSum(nums, 9);
+	std::cout << pprint::to_string(ans) << std::endl;
 
-	printPretty(root, 2, 4, cout);
-	cout << tc.FindLongestPathwithUniqueVal(root) << endl;
-
-}
-
-TEST(longestpathwithuniqueval, normal2)
-{
-	longestpathwithuniqueval tc;
-
-	TreeNode *root = new TreeNode(1);
-	root->left = new TreeNode(1);
-	root->left->left = new TreeNode(1);
-	root->left->left->left = new TreeNode(6);
-	root->left->left->left->left = new TreeNode(1);
-	root->left->left->left->left->left = new TreeNode(1);
-	root->left->left->left->left->right = new TreeNode(1);
-
-	root->right = new TreeNode(6);
-	root->right->left = new TreeNode(6);
-	root->right->right = new TreeNode(2);
-
-	printPretty(root, 2, 4, cout);
-
-	cout << tc.FindLongestPathwithUniqueVal(root) << endl;
 }
 
 GTEST_API_ int main(int argc, char **argv)

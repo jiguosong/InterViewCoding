@@ -8,14 +8,18 @@
 #ifndef PATHSUM_H_
 #define PATHSUM_H_
 
-#include "../Tree.h"
+#include "Tree.h"
 #include <vector>
+
 using std::vector;
 
 class pathsum {
 public:
-	  bool hasPathSum(TreeNode *root, int sum);
-	  vector<vector<int> > allpathSum(TreeNode *root, int sum);
+    bool hasPathSum(TreeNode *root, int sum);
+
+    vector<vector<int> > allpathSum(TreeNode *root, int sum);
+
+    int pathSum(TreeNode *root, int sum);
 };
 
 #endif /* PATHSUM_H_ */

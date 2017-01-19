@@ -27,7 +27,7 @@ public:
 private:
     vector<int> tree_;
     vector<int> num_;
-    int sz_;
+    unsigned int sz_;
 };
 
 #endif

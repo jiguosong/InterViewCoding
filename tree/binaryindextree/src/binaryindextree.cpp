@@ -27,8 +27,8 @@ void BinaryIndexTree::dummy()
 BinaryIndexTree::BinaryIndexTree(vector<int> &nums)
 {
     sz_ = nums.size();
-    tree_ = vector<int>(sz_ + 1, 0);
-    num_ = vector<int>(sz_ + 1, 0);
+    tree_.resize(sz_ + 1, 0);
+    num_.resize(sz_ + 1, 0);
     for (int i = 0; i < nums.size(); ++i) {
         update(i, nums[i]);
     }

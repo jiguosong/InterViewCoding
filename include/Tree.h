@@ -139,8 +139,8 @@ static void unbalance(TreeNode **pp) {
         if (!p->left) {
             pp = &p->right;
         } else {
-            TreeNode *tmp = p->left->right;
             *pp = p->left;
+            TreeNode *tmp = p->left->right;
             p->left->right = p;
             p->left = tmp;
         }
