@@ -183,8 +183,11 @@ using namespace alg;
 TEST(validbst, normal1)
 {
 	validbst tc;
+	TreeNode *root = randomBST(7, 1, 100);
+	//unbalance(&root->left);
+	printPretty(root, 2, 4, cout);
 
-
+	ASSERT_TRUE(tc.isValidBST(root));
 }
 
 GTEST_API_ int main(int argc, char **argv)

@@ -180,9 +180,6 @@ TEST(segmenttree, normal1)
 {
     vector<int> data = {18, 17, 13, 19, 15, 11, 20, 12, 33, 25};
     segmenttree tc(data);
-
-    tc.BuildSegTree(data, 0, 0, data.size() - 1);
-
     vector<int> x = tc.getTree();
 
     PrintVector(x);

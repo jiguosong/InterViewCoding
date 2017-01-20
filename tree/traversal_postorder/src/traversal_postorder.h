@@ -8,7 +8,7 @@
 #ifndef POSTORDER_TRAVERSAL_H_
 #define POSTORDER_TRAVERSAL_H_
 
-#include "../Tree.h"
+#include "Tree.h"
 
 class postorder_traversal {
 public:

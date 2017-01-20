@@ -180,7 +180,7 @@ TEST(maxdepthBT, normal1)
 {
 	maxdepthBT tc;
 
-	TreeNode *root = randomBST(10, 1, 100);
+	TreeNode *root = randomBST(8, 1, 100);
 	unbalance(&root->left);
 	printPretty(root, 2, 4, cout);
 

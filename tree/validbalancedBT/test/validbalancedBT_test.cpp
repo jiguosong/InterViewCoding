@@ -9,7 +9,6 @@
 // uncomment to disable assert()
 // #define NDEBUG
 #include <cassert>
-#include <logger.h>
 
 /*
 #include <array>

@@ -180,6 +180,15 @@ TEST(uniqueBSTs, normal1)
 {
 	uniqueBSTs tc;
 
+	int n = 2;
+
+	cout << tc.UniqueBSTumber(n) << endl;
+
+	vector<TreeNode *> ans = tc.generateTrees(n);
+	for(auto e:ans) {
+		printPretty(e, 2, 4, cout);
+	}
+
 }
 
 GTEST_API_ int main(int argc, char **argv)

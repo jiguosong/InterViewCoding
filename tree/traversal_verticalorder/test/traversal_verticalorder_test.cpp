@@ -9,6 +9,7 @@
 // uncomment to disable assert()
 // #define NDEBUG
 #include <cassert>
+#include <Print.h>
 
 /*
 #include <array>
@@ -178,7 +179,14 @@ string gen_random(const int len)
 
 TEST(traversal_verticalorder, normal1)
 {
-	traversal_verticalorder tc;
+	verticalorder_traversal tc;
+
+
+	TreeNode *root = randomBT(10, 1, 10);
+	printPretty(root, 2, 4, cout);
+
+	vector<vector<int>> ans = tc.verticalOrder(root);
+	cout << pprint::to_string(ans) <<endl;
 
 }
 

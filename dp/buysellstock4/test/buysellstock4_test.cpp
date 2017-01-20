@@ -34,8 +34,8 @@
 
 using namespace std;
 
-#include "buysellstock4.h"
-#include "../Array.h"
+#include "../src/buysellstock4.h"
+#include "Array.h"
 
 /*
  Choose auto x when you want to work with copies.

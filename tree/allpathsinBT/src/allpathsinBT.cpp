@@ -3,8 +3,6 @@ Given a binary tree, return all root-to-leaf paths.
 
 For example, given the following binary tree:
 
-
-
    1
  /   \
 2     3

@@ -3,7 +3,7 @@
 #include "gtest/gtest.h"
 #include <iostream>
 #include <vector>
-#include "createmaxnumber.h"
+#include "../src/createmaxnumber.h"
 
 using std::cout; 
 using std::endl;

@@ -180,6 +180,11 @@ TEST(searchRangeBST, normal1)
 {
 	searchRangeBST tc;
 
+	TreeNode *root = randomBST(10, 1, 100);
+	printPretty(root, 2,4, cout);
+	pair<int, int> ans = tc.searchRangeinBST(root, 20);
+	cout << ans.first << " " << endl;
+	cout << ans.second << " " << endl;
 }
 
 GTEST_API_ int main(int argc, char **argv)

@@ -9,6 +9,7 @@
 // uncomment to disable assert()
 // #define NDEBUG
 #include <cassert>
+#include <Print.h>
 
 /*
 #include <array>
@@ -181,10 +182,11 @@ TEST(traversal_inorder, normal1)
 	inorder_traversal tc;
 
 	TreeNode *root = randomBST(7, 1, 100);
+	unbalance(&root->left);
 	printPretty(root, 2, 4, cout);
 
 	vector<int> ans = tc.inOrder(root);
-	PrintVector(ans);
+	cout << pprint::to_string(ans) << endl;
 
 }
 

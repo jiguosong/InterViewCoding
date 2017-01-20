@@ -8,7 +8,7 @@
 #ifndef VERTICALORDER_TRAVERSAL_H_
 #define VERTICALORDER_TRAVERSAL_H_
 
-#include "../Tree.h"
+#include "Tree.h"
 
 class verticalorder_traversal {
 public:

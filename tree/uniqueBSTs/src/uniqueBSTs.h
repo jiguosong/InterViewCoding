@@ -6,13 +6,14 @@
 using std::vector;
 using std::string;
 
-#include "../Tree.h"
+#include "Tree.h"
 
 class uniqueBSTs
 {
 public:
 	void dummy();
 	vector<TreeNode *> generateTrees(int n);
+	int UniqueBSTumber(int n);
 private:
 
 };

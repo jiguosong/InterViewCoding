@@ -8,7 +8,7 @@
 #ifndef PARSESTR2TREE_H_
 #define PARSESTR2TREE_H_
 
-#include "../Tree.h"
+#include "Tree.h"
 
 class parserstr2tree {
 public:

@@ -9,8 +9,6 @@ class segmenttree {
 public:
     void dummy();
 
-    void BuildSegTree(vector<int> &data, int treeidx, int low, int high);
-
     int QuerySegTree(int treeidx, int low, int high, int i, int j);
 
     void UpdateSegTree(int treeidx, int low, int high, int arrayIdx, int val);
@@ -28,6 +26,8 @@ public:
 private:
     vector<int> tree;
     int size;
+
+    void BuildSegTree(vector<int> &data, int treeidx, int low, int high);
 };
 
 #endif

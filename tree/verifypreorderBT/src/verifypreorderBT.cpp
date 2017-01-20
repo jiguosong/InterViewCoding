@@ -52,27 +52,22 @@ there are 4 cases:
 
 bool verifypreorderBT::isValidSerialization(std::string preorder)
 {
-	if (preorder.empty())
-		return false;
+    if (preorder.empty())
+        return false;
 
-	std::istringstream in(preorder);
-	std::vector<std::string> v;
-	std::string val;
-	while (std::getline(in, val, ','))
-		v.push_back(val);
+    std::istringstream in(preorder);
+    std::vector<std::string> v;
+    std::string val;
+    while (std::getline(in, val, ','))
+        v.push_back(val);
 
-	int d = 0;
-	for (int i = 0; i < v.size() - 1; ++i) {
-		if (v[i] == "#") {
-			if (d == 0)
-				return false;
-			else
-				--d;
-		} else {
-			++d;
-		}
-	}
+    int d = 0;
+    for (int i = 0; i < v.size() - 1; ++i) {
+        if (v[i] == "#") --d;
+        else ++d;
 
-	return d != 0 ? false : v.back() == "#";
+        if (d < 0) return false;
+    }
 
+    return d != 0 ? false : v.back() == "#";
 }

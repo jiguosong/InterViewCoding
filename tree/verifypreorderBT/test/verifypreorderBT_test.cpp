@@ -180,6 +180,18 @@ TEST(verifypreorderBT, normal1)
 {
 	verifypreorderBT tc;
 
+	string s = "9,3,4,#,#,1,#,#,2,#,6,#,#";
+	ASSERT_TRUE(tc.isValidSerialization(s));
+
+}
+
+TEST(verifypreorderBT, normal2)
+{
+	verifypreorderBT tc;
+
+	string s = "9,#,#,1";
+	ASSERT_FALSE(tc.isValidSerialization(s));
+
 }
 
 GTEST_API_ int main(int argc, char **argv)

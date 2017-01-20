@@ -27,59 +27,58 @@
 #include "createmaxnumber.h"
 #include "algorithm"
 
-static vector<int> findmaxnum(vector<int> &nums, int k)
+vector<int> createmaxnumber::findmaxnum(vector<int> &nums, int k)
 {
-	if (k <= 0)
-		return {};
+    if (k <= 0)
+        return {};
 
-	int drop  = nums.size() - k;
+    int drop = nums.size() - k;
 
-	vector<int> res;
-	for (int e : nums) {
-		while (drop && !res.empty() && res.back() < e) {
-			res.pop_back();
-			--drop;
-		}
-		res.push_back(e);
-	}
+    vector<int> res;
+    for (int e : nums) {
+        while (drop && !res.empty() && res.back() < e) {
+            res.pop_back();
+            --drop;
+        }
+        res.push_back(e);
+    }
 
-	res.resize(k);
-	return res;
-
+    res.resize(k);
+    return res;
 }
 
-static vector<int> mergetest(vector<int> &nums1, vector<int> &nums2)
+vector<int> createmaxnumber::mergetest(vector<int> &nums1, vector<int> &nums2)
 {
-	vector<int> out;
-	auto a1 = nums1.begin();
-	auto e1 = nums1.end();
-	auto a2 = nums2.begin();
-	auto e2 = nums2.end();
+    vector<int> out;
+    auto a1 = nums1.begin();
+    auto e1 = nums1.end();
+    auto a2 = nums2.begin();
+    auto e2 = nums2.end();
 
-	while (a1 != e1 || a2 != e2) {
-		int t = std::lexicographical_compare(a1, e1, a2, e2) ? *a2++ : *a1++;
-		out.push_back(t);
-	}
+    while (a1 != e1 || a2 != e2) {
+        int t = std::lexicographical_compare(a1, e1, a2, e2) ? *a2++ : *a1++;
+        out.push_back(t);
+    }
 
-	return out;
+    return out;
 }
 
-vector<int> createmaxnumber::maxNumber(vector<int>& nums1, vector<int>& nums2,
-		int k)
+vector<int> createmaxnumber::maxNumber(vector<int> &nums1, vector<int> &nums2,
+                                       int k)
 {
-	if (k <= 0)
-		return {};
+    if (k <= 0)
+        return {};
 
-	int n1 = nums1.size();
-	int n2 = nums2.size();
+    int n1 = nums1.size();
+    int n2 = nums2.size();
 
-	vector<int> res;
-	for (int i = std::max(k - n2, 0); i <= std::min(k, n1); ++i) {
-		vector<int> t1 = findmaxnum(nums1, 2);
-		vector<int> t2 = findmaxnum(nums2, 2);
-		res = std::max(res, mergetest(t1, t2));
-	}
+    vector<int> res;
+    for (int i = std::max(k - n2, 0); i <= std::min(k, n1); ++i) {
+        vector<int> t1 = findmaxnum(nums1, 2);
+        vector<int> t2 = findmaxnum(nums2, 2);
+        res = std::max(res, mergetest(t1, t2));
+    }
 
-	return res;
+    return res;
 }
 

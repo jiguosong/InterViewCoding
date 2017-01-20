@@ -3,7 +3,6 @@
 */
 
 #include "traversal_levelorder.h"
-#include "../Tree.h"
 
 vector<vector<int>> levelorder_traversal::levelOrder(TreeNode *root)
 {

@@ -8,7 +8,7 @@
 #ifndef SIDEVIEWORDER_TRAVERSAL_H_
 #define SIDEVIEWORDER_TRAVERSAL_H_
 
-#include "../Tree.h"
+#include "Tree.h"
 
 class sidevieworder_traversal {
 public:

@@ -57,22 +57,19 @@ return
 
 static void helper(TreeNode *root, int sum, vector<int> &tmp, vector<vector<int>> &res)
 {
-    if (!root->left && !root->right && root->val == sum) {
+    if(!root) return;
+
+    tmp.push_back(root->val);
+
+    if(!root->left && !root->right && root->val == sum) {
         res.push_back(tmp);
         return;
     }
 
-    if (root->left) {
-        tmp.push_back(root->left->val);
-        helper(root->left, sum - root->val, tmp, res);
-        tmp.pop_back();
-    }
+    helper(root->left, sum-root->val, tmp, res);
+    helper(root->right, sum-root->val, tmp, res);
 
-    if (root->right) {
-        tmp.push_back(root->right->val);
-        helper(root->right, sum - root->val, tmp, res);
-        tmp.pop_back();
-    }
+    tmp.pop_back();
 }
 
 vector<vector<int> > pathsum::allpathSum(TreeNode *root, int sum)

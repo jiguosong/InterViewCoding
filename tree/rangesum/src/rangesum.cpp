@@ -1,3 +1,9 @@
+/*
+ *
+ *   RangeSum's BST solution
+ *
+ * */
+
 #include "rangesum.h"
 
 struct TreeNode {

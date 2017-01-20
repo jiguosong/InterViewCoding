@@ -1,7 +1,7 @@
 #ifndef traversal_levelorder_H_
 #define traversal_levelorder_H_
 
-#include "../Tree.h"
+#include "Tree.h"
 
 class levelorder_traversal {
 public:
