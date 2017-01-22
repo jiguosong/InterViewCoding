@@ -1,18 +1,18 @@
-/*
- * editdistance.cpp
- *
- *  Created on: Nov 24, 2016
- *      Author: songjiguo
- */
+/*Given two words word1 and word2, find the minimum number of steps required to convert word1 to word2.
 
-
-/*Given two words word1 and word2, find the minimum number of steps required to convert word1 to word2. (each operation is counted as 1 step.)
+ (each operation is counted as 1 step.)
 
 You have the following 3 operations permitted on a word:
 
 a) Insert a character
 b) Delete a character
-c) Replace a character*/
+c) Replace a character
+
+    f(i, j - 1) represents insert operation
+    f(i - 1, j) represents delete operation
+    f(i - 1, j - 1) represents replace operation
+
+ */
 
 #include "editdistance.h"
 #include <vector>

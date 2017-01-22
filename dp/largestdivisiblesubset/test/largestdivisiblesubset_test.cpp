@@ -33,7 +33,7 @@
 
 using namespace std;
 
-#include "largestdivisiblesubset.h"
+#include "../src/largestdivisiblesubset.h"
 
 
 /*

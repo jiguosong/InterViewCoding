@@ -29,8 +29,7 @@
 
 vector<int> createmaxnumber::findmaxnum(vector<int> &nums, int k)
 {
-    if (k <= 0)
-        return {};
+    if (k <= 0) return {};
 
     int drop = nums.size() - k;
 

@@ -18,16 +18,6 @@ void jumpgame::dummy() {
 
 
 bool jumpgame::JumpToLast(vector<int> &steps) {
-//    vector<int> dp(steps.size(), 0);
-//    dp[0] = steps[0];
-//
-//    for (int i = 1; i < steps.size(); ++i) {
-//        dp[i] = std::max(dp[i-1], steps[i-1]) - 1;
-//        if (dp[i] < 0) return false;
-//    }
-//
-//    return true;
-
     int n = steps.size();
     int maxPos = 0;
     for (int i = 0; i < n; ++i) {

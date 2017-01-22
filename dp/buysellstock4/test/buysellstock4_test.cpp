@@ -114,17 +114,25 @@ string gen_random(const int len)
 	return str;
 }
 
-TEST(buysellstock4, normal1)
+//TEST(buysellstock4, normal1)
+//{
+//	buysellstock4 tc;
+//	Array<int> x(10, 1, 10);
+//	vector<int> prices = x.getUniqueArray();
+//	//sort(prices.begin(), prices.end(), std::greater<int>());
+//	PrintVector(prices);
+//	int k = 5;
+//	int ans = tc.maxStockProfit(prices, k);
+//	cout << ans << endl;
+//}
+
+TEST(buysellstock4, normal2)
 {
 	buysellstock4 tc;
-	Array<int> x(10, 1, 10);
-	vector<int> prices = x.getUniqueArray();
-	//sort(prices.begin(), prices.end(), std::greater<int>());
-	PrintVector(prices);
-	int k = 5;
+	int k = 1;
+	vector<int> prices = {1,2};
 	int ans = tc.maxStockProfit(prices, k);
 	cout << ans << endl;
-
 }
 
 GTEST_API_ int main(int argc, char **argv)

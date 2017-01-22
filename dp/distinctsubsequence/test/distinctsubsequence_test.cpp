@@ -6,7 +6,7 @@
  */
 
 
-#include "distinctsubsequence.h"
+#include "../src/distinctsubsequence.h"
 #include "gtest/gtest.h"
 #include <iostream>
 
@@ -15,38 +15,34 @@ using std::endl;
 
 TEST(distinctsubsequence, normal1)
 {
-	//distinctsubsequence c;
+	distinctsubsequence tc;
 	string s = "rabbbit";
 	string t = "rabbit";
-	//ASSERT_EQ(3, c.numDistinct(s, t));
-	ASSERT_EQ(3, numDistinct(s, t));
+	ASSERT_EQ(3, tc.numDistinct(s, t));
 }
 
 TEST(distinctsubsequence, normal2)
 {
-	//distinctsubsequence c;
+	distinctsubsequence tc;
 	string s = "rabbbit";
 	string t = "";
-	//ASSERT_EQ(1, c.numDistinct(s, t));
-	ASSERT_EQ(1, numDistinct(s, t));
+	ASSERT_EQ(1, tc.numDistinct(s, t));
 }
 
 TEST(distinctsubsequence, normal3)
 {
-	//distinctsubsequence c;
+	distinctsubsequence c;
 	string s = "";
 	string t = "abc";
-	//ASSERT_EQ(0, c.numDistinct(s, t));
-	ASSERT_EQ(0, numDistinct(s, t));
+	ASSERT_EQ(0, c.numDistinct(s, t));
 }
 
 TEST(distinctsubsequence, normal4)
 {
-	//distinctsubsequence c;
+	distinctsubsequence c;
 	string s = "abc";
 	string t = "abc";
-	//ASSERT_EQ(1, c.numDistinct(s, t));
-	ASSERT_EQ(1, numDistinct(s, t));
+	ASSERT_EQ(1, c.numDistinct(s, t));
 }
 
 GTEST_API_ int main(int argc, char **argv)

@@ -3,39 +3,101 @@
 #include "gtest/gtest.h"
 
 #include <iostream>
+#include <vector>
+#include <string>
+#include <random>
 // uncomment to disable assert()
 // #define NDEBUG
 #include <cassert>
 
+/*
 #include <array>
-#include <vector>
 #include <forward_list>
 #include <list>
 #include <deque>
-
 #include <set>    // multiset is also defined here
 #include <map>    // multimap is also defined here
 #include <unordered_set>  // unordered_multiset is also defined here
 #include <unordered_map>  // unordered_multimap is also defined here
+*/
 
 /*
  * stack          - use standard containers std::vector, std::deque and std::list
  * queue          - use standard containers std::deque and std::list
  * priority_queue - use standard containers std::vector and std::deque
  * */
+/*
 #include <stack>       // stack
 #include <queue>       // queue + priority_queue
-
 #include <algorithm>
 #include <random>
 #include <string>
 #include <memory>
 #include <random>
+*/
+
+/*
+// hackerrank header
+#include <map>
+#include <set>
+#include <list>
+#include <cmath>
+#include <ctime>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <string>
+#include <bitset>
+#include <cstdio>
+#include <limits>
+#include <vector>
+#include <climits>
+#include <cstring>
+#include <cstdlib>
+#include <fstream>
+#include <numeric>
+#include <sstream>
+#include <iostream>
+#include <algorithm>
+#include <unordered_map>
 
 using namespace std;
 
-#include "../src/containduplicate.h"
-#include "Array.h"
+// UVA header examples
+#include <iostream>
+#include <cstdio>
+#include <algorithm>
+#include <cstring>
+#include <string>
+#include <cctype>
+#include <cassert>
+#include <stack>
+#include <queue>
+#include <list>
+#include <vector>
+#include <map>
+#include <unordered_map>
+#include <sstream>
+#include <cmath>
+#include <bitset>
+#include <utility>
+#include <set>
+#include <unordered_set>
+#include <numeric>
+#include <time.h>
+#include <fstream>
+#include <limits>
+#include <iomanip>
+#include <iterator>
+//#define INT_MAX 2147483647
+//#define INT_MIN -2147483648
+//#define pi acos(-1.0)
+//#define E 2.71828182845904523536
+*/
+
+using namespace std;
+
+#include "../src/findonemissingnum.h"
 
 /*
  Choose auto x when you want to work with copies.
@@ -46,7 +108,7 @@ template<class T>
 void PrintVector(const vector<T> &vec)
 {
 	for (auto const &v : vec)
-		cout << v << ' ';
+		cout << setw(3) << v << ' ';
 	cout << endl;
 }
 
@@ -114,32 +176,13 @@ string gen_random(const int len)
 	return str;
 }
 
-TEST(containduplicate, normal1)
+TEST(findonemissingnum, normal1)
 {
-	containduplicate tc;
+	findonemissingnum tc;
 
-	Array<int> x(10, 1, 9);
+	vector<int> nums = {0, 1, 3};
 
-	vector<int> nums = x.getRandomArray();
-	PrintVector(nums);
-	ASSERT_TRUE(tc.containDuplicates(nums));
-
-	int k = 2;
-	ASSERT_TRUE(tc.containDuplicatesatMostK(nums, k));
-}
-
-TEST(containduplicate, normal2)
-{
-	containduplicate tc;
-
-	int t = 1;
-	int k = 1;
-	Array<int> x(10, 1, 100);
-
-	vector<int> nums = x.getRandomArray();
-	PrintVector(nums);
-
-	ASSERT_TRUE(tc.containDuplicatesatMostKMostT(nums, k, t));
+	ASSERT_EQ(tc.FindOneMissingNum(nums), 2);
 }
 
 GTEST_API_ int main(int argc, char **argv)
