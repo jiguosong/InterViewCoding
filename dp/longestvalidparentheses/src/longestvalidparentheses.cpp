@@ -13,10 +13,6 @@
 
 #include <stack>
 
-void longestvalidparentheses::dummy()
-{
-}
-
 int longestvalidparentheses::longestValidParentheses(string s)
 {
 	int res = 0;
@@ -40,7 +36,7 @@ int longestvalidparentheses::longestValidParentheses(string s)
 		if (c == '(')
 			stk.push(i);
 		else {
-			if (stk.empty())   // we just examed a complete valid parentheses
+			if (stk.empty())   // we just examine a complete valid parentheses
 				left = i + 1;
 			else {
 				stk.pop();

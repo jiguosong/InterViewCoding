@@ -48,24 +48,22 @@ bool dividearray::isArrayDividableInEqualSums(vector<int> &nums)
 
 // not necessary contiguous (assume sum is not too big)
 // Q: how about negative?
+// dp[i]表示数字i是否是原数组的任意个子集合之和
 bool dividearray::isArrayDividableInEqualSums_Set(vector<int> &nums)
 {
-    long long sum = 0;
-    vector<int> tmp_list;
+    int sum = std::accumulate(nums.begin(), nums.end(), 0);
+    if (sum % 2 == 1) return false;
+    int target = sum / 2;
+    vector<bool> dp(target + 1, false);
+    dp[0] = true;
 
-    for (int i : nums) sum += i;
-    if (sum % 2) return false;
-    // sumlessthan(i,j) is the max sum from 0th to ith that the sum is no more than j
-    vector<vector<int>> sumlessthan(nums.size() + 1, vector<int>(abs(sum / 2) + 1, 0));
-
-    for (int i = 1; i <= nums.size(); ++i) {
-        for (int j = 1; j <= sum / 2; ++j) {
-            if (nums[i - 1] > j) sumlessthan[i][j] = sumlessthan[i - 1][j];
-            else sumlessthan[i][j] = std::max(sumlessthan[i - 1][j], nums[i - 1] + sumlessthan[i - 1][j - nums[i - 1]]);
+    for (int i = 0; i < nums.size(); ++i) {
+        for (int j = target; j >= nums[i]; --j) {
+            dp[j] = dp[j] || dp[j - nums[i]];
         }
     }
-    return sumlessthan[nums.size()][sum / 2] == sum / 2;
 
+    return dp[target];
 }
 
 vector<vector<int>> dividearray::allArrayDividableInEqualSums_Set(vector<int> &nums)

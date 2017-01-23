@@ -9,7 +9,7 @@
 #define LONGESTNONREPSUBSTR_H_
 
 #include <string>
-
+#include <vector>
 using std::string;
 
 class longestnonrepsubstr {

@@ -33,9 +33,9 @@
 
 using namespace std;
 
-#include "leftmostsmallernumber.h"
+#include "../src/leftmostsmallernumber.h"
 
-#include "../Array.h"
+#include "Array.h"
 
 /*
  Choose auto x when you want to work with copies.

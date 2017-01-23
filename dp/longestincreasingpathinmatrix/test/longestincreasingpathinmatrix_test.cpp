@@ -31,10 +31,11 @@
 #include <string>
 #include <memory>
 #include <random>
+#include <Print.h>
 
 using namespace std;
 
-#include "longestincreasingpathinmatrix.h"
+#include "../src/longestincreasingpathinmatrix.h"
 
 
 /*
@@ -116,6 +117,9 @@ TEST(longestincreasingpathinmatrix, normal1)
 {
 	longestincreasingpathinmatrix tc;
 	vector<vector<int>> matrix = {{9,9,4}, {6,6,8}, {2,1,1}};
+
+	PrintVectorVector(matrix);
+
 	int ans = tc.longestincreasingpath(matrix);
 	ASSERT_EQ(ans, 4);
 }

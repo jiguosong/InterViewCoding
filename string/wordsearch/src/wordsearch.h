@@ -13,9 +13,7 @@
 
 class solution {
 public:
-	bool exist(std::vector<std::vector<char> > &board, std::string word);
+    bool exist(std::vector<std::vector<char> > &board, std::string word);
 };
-
-
 
 #endif /* WORDSEARCH_H_ */

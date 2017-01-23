@@ -3,7 +3,7 @@
 #include "gtest/gtest.h"
 #include <iostream>
 #include <vector>
-#include "longestpalindrome.h"
+#include "../src/longestpalindrome.h"
 
 using std::cout; 
 using std::endl;

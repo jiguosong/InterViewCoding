@@ -8,7 +8,6 @@ using std::string;
 
 class longestvalidparentheses {
 public:
-	void dummy();
 	int longestValidParentheses(string s);
 private:
 

@@ -179,6 +179,18 @@ string gen_random(const int len)
 TEST(trie, normal1)
 {
 	trie tc;
+	const vector<string> strs = {"sap", "sat", "sad", "rat", "ram", "rag", "rap", "sat", "ram","rag", "nap", "nat", "lap"};
+
+	for (auto s : strs) {
+		tc.insert(s);
+	}
+
+	cout << "count of sat: " << tc.count("sat") << endl;
+	cout << "count of prefix ra: " << tc.countPrefix("ra") << endl;
+
+	ASSERT_TRUE(tc.search("sat"));
+	ASSERT_FALSE(tc.search("sa"));
+	ASSERT_TRUE(tc.startWith("sa"));
 
 }
 

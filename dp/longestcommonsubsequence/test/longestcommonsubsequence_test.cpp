@@ -3,7 +3,7 @@
 #include "gtest/gtest.h"
 #include <iostream>
 #include <vector>
-#include "longestcommonsubsequence.h"
+#include "../src/longestcommonsubsequence.h"
 
 using std::cout; 
 using std::endl;
