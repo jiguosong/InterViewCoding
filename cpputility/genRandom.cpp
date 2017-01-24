@@ -5,6 +5,9 @@
  *      Author: songjiguo
  */
 
+
+// http://stackoverflow.com/questions/686353/c-random-float-number-generation#686373
+
 #include <random>
 #include <iostream>
 

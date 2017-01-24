@@ -1,11 +1,4 @@
 /*
- * palindromepair.cpp
- *
- *  Created on: Nov 28, 2016
- *      Author: songjiguo
- */
-
-/*
  Given a list of unique words. Find all pairs of distinct indices (i, j) in the given list,
  so that the concatenation of the two words, i.e. words[i] + words[j] is a palindrome.
 

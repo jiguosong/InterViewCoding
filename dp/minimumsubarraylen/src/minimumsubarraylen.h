@@ -8,7 +8,6 @@ using std::string;
 
 class minimumsubarraylen {
 public:
-	void dummy();
 	int minSubArrayLen(int s, vector<int>& nums);
 private:
 

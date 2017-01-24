@@ -3,35 +3,40 @@
 #include "gtest/gtest.h"
 
 #include <iostream>
+#include <vector>
+#include <string>
+#include <random>
 // uncomment to disable assert()
 // #define NDEBUG
 #include <cassert>
 
+/*
 #include <array>
-#include <vector>
 #include <forward_list>
 #include <list>
 #include <deque>
-
 #include <set>    // multiset is also defined here
 #include <map>    // multimap is also defined here
 #include <unordered_set>  // unordered_multiset is also defined here
 #include <unordered_map>  // unordered_multimap is also defined here
+*/
 
 /*
  * stack          - use standard containers std::vector, std::deque and std::list
  * queue          - use standard containers std::deque and std::list
  * priority_queue - use standard containers std::vector and std::deque
  * */
+/*
 #include <stack>       // stack
 #include <queue>       // queue + priority_queue
-
 #include <algorithm>
 #include <random>
 #include <string>
 #include <memory>
 #include <random>
+*/
 
+/*
 // hackerrank header
 #include <map>
 #include <set>
@@ -84,117 +89,104 @@ using namespace std;
 #include <limits>
 #include <iomanip>
 #include <iterator>
-#define INT_MAX 2147483647
-#define INT_MIN -2147483648
-#define pi acos(-1.0)
-#define E 2.71828182845904523536
+//#define INT_MAX 2147483647
+//#define INT_MIN -2147483648
+//#define pi acos(-1.0)
+//#define E 2.71828182845904523536
+*/
 
 using namespace std;
 
-#include "../src/minimumsubarraylen.h"
+#include "../src/powerxn.h"
 
 /*
-   Choose auto x when you want to work with copies.
-   Choose auto &x when you want to work with original items and may modify them.
-   Choose auto const &x when you want to work with original items and will not modify them 
-*/
+ Choose auto x when you want to work with copies.
+ Choose auto &x when you want to work with original items and may modify them.
+ Choose auto const &x when you want to work with original items and will not modify them
+ */
 template<class T>
 void PrintVector(const vector<T> &vec)
 {
-	for(auto const &v:vec) cout << v << ' ';
-	cout << endl;
+    for (auto const &v : vec)
+        cout << setw(3) << v << ' ';
+    cout << endl;
 }
 
 template<class T>
 void PrintVectorVector(const vector<vector<T>> &vec)
 {
-	for(auto const &v:vec) PrintVector(v);
+    for (auto const &v : vec)
+        PrintVector(v);
 }
 
 template<class T>
 bool CompareVectorVector(const vector<T> &v1, const vector<T> &v2)
 {
-	if (v1.size() != v2.size())
-		return false;
+    if (v1.size() != v2.size())
+        return false;
 
-	std::multiset<T> s1(v1.begin(), v1.end());
-	std::multiset<T> s2(v2.begin(), v2.end());
-	std::vector<T> v3;
-	std::set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
-			std::back_inserter(v3));
-	return (v3.size() == v1.size());
+    std::multiset<T> s1(v1.begin(), v1.end());
+    std::multiset<T> s2(v2.begin(), v2.end());
+    std::vector<T> v3;
+    std::set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
+                          std::back_inserter(v3));
+    return (v3.size() == v1.size());
 }
 
 static int getRandom(int lower, int upper)
 {
-	std::random_device rd;
-	std::mt19937 gen(rd());
-	std::uniform_int_distribution<int> dist(lower, upper);
-	return dist(gen);
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<int> dist(lower, upper);
+    return dist(gen);
 }
 
 // first way to generate random string of len
 string getRandomString(int len)
 {
-	string str(len, ' ');
-	for (int i = 0; i < len; ++i) {
-		int randchar =
-				getRandom(0, std::numeric_limits<int>::max()) % (26 + 26 + 10);
-		if (randchar < 26) {
-			str[i] = 'a' + randchar;
-		} else if (randchar < 26 + 26) {
-			str[i] = 'A' + randchar - 26;
-		} else {
-			str[i] = '0' + randchar - 26 - 26;
-		}
-	}
+    string str(len, ' ');
+    for (int i = 0; i < len; ++i) {
+        int randchar =
+                getRandom(0, std::numeric_limits<int>::max()) % (26 + 26 + 10);
+        if (randchar < 26) {
+            str[i] = 'a' + randchar;
+        } else if (randchar < 26 + 26) {
+            str[i] = 'A' + randchar - 26;
+        } else {
+            str[i] = '0' + randchar - 26 - 26;
+        }
+    }
 
-	return str;
+    return str;
 }
 
 // second way to generate random string of len
 string gen_random(const int len)
 {
-	static const char alphanum[] = "0123456789"
-			"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-			"abcdefghijklmnopqrstuvwxyz";
+    static const char alphanum[] = "0123456789"
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            "abcdefghijklmnopqrstuvwxyz";
 
-	string str(len, ' ');
-	for (int i = 0; i < len; ++i) {
-		str[i] =
-				alphanum[getRandom(0, std::numeric_limits<int>::max()) % (sizeof(alphanum) - 1)];
-	}
+    string str(len, ' ');
+    for (int i = 0; i < len; ++i) {
+        str[i] =
+                alphanum[getRandom(0, std::numeric_limits<int>::max()) % (sizeof(alphanum) - 1)];
+    }
 
-	return str;
+    return str;
 }
 
-TEST(minimumsubarraylen, normal1)
+TEST(powerxn, normal1)
 {
-	minimumsubarraylen tc;
+    powerxn tc;
 
-	vector<int> nums = {2,3,1,2,4,3};
-	ASSERT_EQ(2, tc.minSubArrayLen(7, nums));
+    cout << tc.Power(2, 3) << endl;
+    cout << tc.Power(2.5, 3) << endl;
+    cout << tc.Power(10, -1) << endl;
 }
-
-TEST(minimumsubarraylen, normal2)
-{
-	minimumsubarraylen tc;
-
-	vector<int> nums = {20};
-	ASSERT_EQ(1, tc.minSubArrayLen(7, nums));
-}
-
-TEST(minimumsubarraylen, normal3)
-{
-	minimumsubarraylen tc;
-
-	vector<int> nums = {1,1};
-	ASSERT_EQ(0, tc.minSubArrayLen(7, nums));
-}
-
 
 GTEST_API_ int main(int argc, char **argv)
 {
-	::testing::InitGoogleTest(&argc, argv);
-	return RUN_ALL_TESTS();
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }

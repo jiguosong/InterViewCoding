@@ -1,10 +1,3 @@
-/*
- * trappingwater.cpp
- *
- *  Created on: Nov 26, 2016
- *      Author: songjiguo
- */
-
 #include "trappingwater.h"
 
 /*Given n non-negative integers a1, a2, ..., an, where each represents a point
