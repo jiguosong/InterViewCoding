@@ -5,30 +5,34 @@
 #include <string>
 #include <stack>
 #include "Tree.h"
+
 using std::vector;
 using std::string;
 
 class bstiterator {
 public:
-    bstiterator(TreeNode *root) {
+    bstiterator(TreeNode *root)
+    {
         TreeNode *p = root;
-        while(p) {
+        while (p) {
             stk.push(p);
             p = p->left;
         }
     }
 
-    bool hasNext() {
+    bool hasNext()
+    {
         return !stk.empty();
     }
 
-    int next() {
+    int next()
+    {
         TreeNode *p = stk.top();
         stk.pop();
         int res = p->val;
-        if(p->right) {
+        if (p->right) {
             p = p->right;
-            while(p) {
+            while (p) {
                 stk.push(p);
                 p = p->left;
             }
@@ -37,7 +41,7 @@ public:
     }
 
 private:
-	std::stack<TreeNode *> stk;
+    std::stack<TreeNode *> stk;
 };
 
 #endif

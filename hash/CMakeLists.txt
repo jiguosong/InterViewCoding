@@ -2,3 +2,5 @@ add_executable(performance performance.cpp)
 add_subdirectory(simplehashfunction)
 
 add_subdirectory(hashtable)
+add_subdirectory(hashtable_chaining)
+add_subdirectory(hashtable_openaddressing)

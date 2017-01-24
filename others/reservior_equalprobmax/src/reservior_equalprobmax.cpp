@@ -8,18 +8,32 @@ Examples:
 
 
  http://stackoverflow.com/questions/21717449/sample-an-index-of-a-maximal-number-in-an-array-with-a-probability-of-1-number
+ http://stackoverflow.com/questions/2386772/difference-between-float-and-double#2386882
 */
 
 #include <ctime>
 #include <iostream>
+#include <random>
 #include "reservior_equalprobmax.h"
+
+static double getRand()
+{
+    // old way
+    //std::srand(std::time(0));
+    //double randn = ((double) rand() / (RAND_MAX));
+
+    std::random_device rd;
+    std::mt19937 some_generator(rd());
+    std::uniform_real_distribution<float> dist(0, 1);
+    return dist(some_generator);
+}
 
 int reservior_equalprobmax::FindMaxIndex(vector<int> &nums)
 {
     if (nums.empty()) return 0;
     int maxItem = nums[0];
     int count = 0;
-
+    int res = 0;
 
     for (int i = 1; i < nums.size(); ++i) {
         if (nums[i] > maxItem) {
@@ -29,14 +43,14 @@ int reservior_equalprobmax::FindMaxIndex(vector<int> &nums)
 
         if (nums[i] == maxItem) {
             ++count;
-            double randn = ((double) rand() / (RAND_MAX));
+            double randn = getRand();
             if (randn < 1 / (double) count) {
-                return i;
+                res = i;
             }
         }
     }
 
-    return 0;
+    return res;
 }
 
 //

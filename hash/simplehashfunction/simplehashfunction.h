@@ -7,7 +7,6 @@ using std::vector;
 
 class simplehashfunction {
 public:
-	void dummy();
 	unsigned int SimpleHash_Fn(const std::string &str, unsigned int table_sz);
 private:
 
