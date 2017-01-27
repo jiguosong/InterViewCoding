@@ -20,41 +20,61 @@ public:
     Matrix(const unsigned int row, const unsigned int column, int lower,
            int upper);
 
-    ~Matrix() { };
+    Matrix(const unsigned int row, const unsigned int column);
 
-    std::vector <std::vector<T>> getRandomMatrix();
+    ~Matrix()
+    { };
 
-    std::vector <std::vector<T>> getRowSortedMatrix();
+    std::vector<std::vector<T>> getRandomMatrix();
 
-    std::vector <std::vector<T>> getRowSortedIncreasingMatrix();
+    std::vector<std::vector<T>> getRowSortedMatrix();
+
+    std::vector<std::vector<T>> getRowSortedIncreasingMatrix();
+
+    std::vector<std::vector<T>> getRandomBinaryCharMatrix();
+
+    std::vector<std::vector<T>> getRandomCharMatrix();
 
 private:
     unsigned int row_;
     unsigned int column_;
     int lower_, upper_;
-    std::vector <std::vector<T>> *ptrMatrix_;
+    std::vector<std::vector<T>> *ptrMatrix_;
 };
 
 template<typename T>
 Matrix<T>::Matrix() :
-        row_(0), column_(0), lower_(0), upper_(0), ptrMatrix_(nullptr) {
+        row_(0), column_(0), lower_(0), upper_(0), ptrMatrix_(nullptr)
+{
 }
 
 template<typename T>
 Matrix<T>::Matrix(const unsigned int row, const unsigned int column, int lower,
                   int upper) :
         row_(row), column_(column), lower_(lower), upper_(upper), ptrMatrix_(
-        nullptr) {
+        nullptr)
+{
     assert(row > 0 && column > 0);
-    ptrMatrix_ = new std::vector <std::vector<T>>(row,
-                                                  std::vector<T>(column, 0));
+    ptrMatrix_ = new std::vector<std::vector<T>>(row,
+                                                 std::vector<T>(column, 0));
+}
+
+
+template<typename T>
+Matrix<T>::Matrix(const unsigned int row, const unsigned int column) :
+        row_(row), column_(column), ptrMatrix_(
+        nullptr)
+{
+    assert(row > 0 && column > 0);
+    ptrMatrix_ = new std::vector<std::vector<T>>(row, std::vector<T>(column, 0));
 }
 
 template<typename T>
-std::vector <std::vector<T>> Matrix<T>::getRandomMatrix() {
+std::vector<std::vector<T>> Matrix<T>::getRandomMatrix()
+{
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_int_distribution <T> dist(lower_, upper_);
+    std::uniform_int_distribution<T> dist(lower_, upper_);
 
     for (int i = 0; i < row_; ++i) {
         for (int j = 0; j < column_; ++j) {
@@ -65,10 +85,47 @@ std::vector <std::vector<T>> Matrix<T>::getRandomMatrix() {
 }
 
 template<typename T>
-std::vector <std::vector<T>> Matrix<T>::getRowSortedMatrix() {
+std::vector<std::vector<T>> Matrix<T>::getRandomBinaryCharMatrix()
+{
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_int_distribution <T> dist(lower_, upper_);
+    std::uniform_int_distribution<T> dist(0, std::numeric_limits<int>::max());
+
+    for (int i = 0; i < row_; ++i) {
+        for (int j = 0; j < column_; ++j) {
+            if (dist(gen) % 2 == 0) (*ptrMatrix_)[i][j] = '0';
+            else (*ptrMatrix_)[i][j] = '1';
+        }
+    }
+    return *ptrMatrix_;
+}
+
+
+template<typename T>
+std::vector<std::vector<T>> Matrix<T>::getRandomCharMatrix()
+{
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<T> dist(0, std::numeric_limits<int>::max());
+
+    static const char alphanum[] = "0123456789"
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            "abcdefghijklmnopqrstuvwxyz";
+
+    for (int i = 0; i < row_; ++i) {
+        for (int j = 0; j < column_; ++j) {
+            (*ptrMatrix_)[i][j] = alphanum[dist(gen) % (sizeof(alphanum) - 1)];
+        }
+    }
+    return *ptrMatrix_;
+}
+
+template<typename T>
+std::vector<std::vector<T>> Matrix<T>::getRowSortedMatrix()
+{
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<T> dist(lower_, upper_);
 
     for (int i = 0; i < row_; ++i) {
         for (int j = 0; j < column_; ++j) {
@@ -80,15 +137,16 @@ std::vector <std::vector<T>> Matrix<T>::getRowSortedMatrix() {
 }
 
 template<typename T>
-std::vector <std::vector<T>> Matrix<T>::getRowSortedIncreasingMatrix() {
+std::vector<std::vector<T>> Matrix<T>::getRowSortedIncreasingMatrix()
+{
     std::random_device rd;
     std::mt19937 gen(rd());
 
     for (int i = 0; i < row_; ++i) {
         int range = upper_ - lower_;
         int perrow_range = range / row_;
-        std::uniform_int_distribution <T> dist(lower_ + i * perrow_range,
-                                               lower_ + (i + 1) * perrow_range);
+        std::uniform_int_distribution<T> dist(lower_ + i * perrow_range,
+                                              lower_ + (i + 1) * perrow_range);
         for (int j = 0; j < column_; ++j) {
             (*ptrMatrix_)[i][j] = dist(gen);
         }
@@ -118,19 +176,23 @@ public:
         LEN4 = d4
     };
 
-    static int indexOf(const int i) {
+    static int indexOf(const int i)
+    {
         return i;
     }
 
-    static int indexOf(const int i, const int j) {
+    static int indexOf(const int i, const int j)
+    {
         return j * d1 + i;
     }
 
-    static int indexOf(const int i, const int j, const int k) {
+    static int indexOf(const int i, const int j, const int k)
+    {
         return (k * d2 + j) * d1 + i;
     }
 
-    static int indexOf(const int i, const int j, const int k, const int l) {
+    static int indexOf(const int i, const int j, const int k, const int l)
+    {
         return ((l * d3 + k) * d2 + j) * d1 + i;
     }
 };

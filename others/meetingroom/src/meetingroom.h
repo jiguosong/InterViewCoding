@@ -19,8 +19,13 @@ struct Interval {
 
 class meetingroom_sol {
 public:
+	enum OptionType {
+		ASK, BID
+	};
 	int minMeetingRooms(vector<Interval>& intervals);
 	bool canAttendMeetings(vector<Interval>& intervals);
+private:
+	int type;
 };
 
 

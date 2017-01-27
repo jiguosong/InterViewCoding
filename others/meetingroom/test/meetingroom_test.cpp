@@ -5,11 +5,12 @@
  *      Author: songjiguo
  */
 
-#include "meetingroom.h"
+#include "../src/meetingroom.h"
 #include "gtest/gtest.h"
 
 TEST(testcase_OK1, canmeetingroom)
 {
+
 	meetingroom_sol c;
 	vector<Interval> intervals {Interval(0,30), Interval(5,10),Interval(15,20)};
 
