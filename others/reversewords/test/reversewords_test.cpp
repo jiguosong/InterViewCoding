@@ -1,16 +1,9 @@
-/*
- * reversewords_test.cpp
- *
- *  Created on: Nov 20, 2016
- *      Author: songjiguo
- */
-
 #include "gtest/gtest.h"
-#include "reversewords.h"
+#include "../src/reversewords.h"
 
 TEST(testcase_OK, reverse_word)
 {
-	//For example, Given s = "the sky is blue", return "blue is sky the".
+
 	solution test;
 	std::string s = "the sky is blue";
 	test.reverseWords(s);

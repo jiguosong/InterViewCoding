@@ -3,35 +3,42 @@
 #include "gtest/gtest.h"
 
 #include <iostream>
+#include <vector>
+#include <string>
+#include <random>
 // uncomment to disable assert()
 // #define NDEBUG
 #include <cassert>
+#include <Array.h>
+#include <Print.h>
 
+/*
 #include <array>
-#include <vector>
 #include <forward_list>
 #include <list>
 #include <deque>
-
 #include <set>    // multiset is also defined here
 #include <map>    // multimap is also defined here
 #include <unordered_set>  // unordered_multiset is also defined here
 #include <unordered_map>  // unordered_multimap is also defined here
+*/
 
 /*
  * stack          - use standard containers std::vector, std::deque and std::list
  * queue          - use standard containers std::deque and std::list
  * priority_queue - use standard containers std::vector and std::deque
  * */
+/*
 #include <stack>       // stack
 #include <queue>       // queue + priority_queue
-
 #include <algorithm>
 #include <random>
 #include <string>
 #include <memory>
 #include <random>
+*/
 
+/*
 // hackerrank header
 #include <map>
 #include <set>
@@ -88,10 +95,11 @@ using namespace std;
 //#define INT_MIN -2147483648
 //#define pi acos(-1.0)
 //#define E 2.71828182845904523536
+*/
 
 using namespace std;
 
-#include "../src/reverselinkedlist.h"
+#include "../src/sort_quick.h"
 
 /*
  Choose auto x when you want to work with copies.
@@ -170,27 +178,20 @@ string gen_random(const int len)
 	return str;
 }
 
-TEST(reverselinkedlist, normal1)
+TEST(sort_quick, normal1)
 {
-	reverselinkedlist tc;
+	sort_quick tc;
 
-	List<int> list(10,1,10);
-	ListNode<int> *head = list.head;
-	ListNode<int> *p = nullptr;
-	ListNode<int> *q = nullptr;
-	head->print_list();
-
-	p = tc.ReverseList(head);
-	p->print_list();
-
-	q = tc.ReverseList(p);
-	q->print_list();
+	Array<int> x(10, 1, 10);
+	vector<int> nums = x.getRandomArray();
+	cout << pprint::to_string(nums) << endl;
+	//tc.quickSort(nums);
+	tc.quickSort_iter(nums);
+	cout << pprint::to_string(nums) << endl;
 }
-
 
 GTEST_API_ int main(int argc, char **argv)
 {
 	::testing::InitGoogleTest(&argc, argv);
 	return RUN_ALL_TESTS();
 }
-

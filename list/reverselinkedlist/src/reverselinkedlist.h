@@ -10,8 +10,8 @@ using std::string;
 
 class reverselinkedlist {
 public:
-	void dummy();
 	ListNode<int> *ReverseList(ListNode<int> *list);
+	ListNode<int> *ReverseList_iter(ListNode<int> *list);
 private:
 
 };

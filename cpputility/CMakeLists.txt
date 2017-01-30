@@ -19,5 +19,9 @@ cotire(genRandom)
 add_executable(init_erase init_erase.cpp)
 cotire(init_erase)
 
+add_executable(convert_datatype convert_datatype.cpp)
+cotire(convert_datatype)
+
 add_subdirectory(ReadData)
 add_subdirectory(randomMonteCarlo)
+add_subdirectory(alignedAllocate)

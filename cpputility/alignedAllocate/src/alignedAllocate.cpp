@@ -1,13 +1,5 @@
-/*
- * alignedAllocate.cpp
- *
- *  Created on: Nov 20, 2016
- *      Author: songjiguo
- */
-
+#include <cstdlib>
 #include "alignedAllocate.h"
-#include <cstring>
-#include <memory>
 
 /*
 For a more generic memory allocation function, the caller doesn't want to have to keep track of two pointers (one to use and one to free).
@@ -33,17 +25,18 @@ Steps:
 5. Return p2.
 */
 
-void *alignedAllocate_test::alignedAllocate(size_t sizeInBytes, size_t alignment)
+void *alignedAllocate_test::alignedAllocate(uint32_t sizeInBytes, uint32_t alignment)
 {
-	void* p1;  // original block
-	void** p2; // aligned block
-	int offset = alignment - 1 + sizeof(void*);
-	if ((p1 = (void*)malloc(sizeInBytes + offset)) == NULL) return NULL;
-	p2 = (void**)(((size_t)(p1) + offset) & ~(alignment - 1));
-	p2[-1] = p1;
-	return p2;
+    void *p1;  // original block
+    void **p2; // aligned block
+    int offset = alignment - 1 + sizeof(void *);
+    if ((p1 = (void **) malloc(sizeInBytes + offset)) == nullptr) return nullptr;
+    p2 = (void **) (((size_t) (p1) + offset) & ~(alignment - 1));
+    p2[-1] = p1;
+    return p2;
 }
 
-void alignedAllocate_test::alignned_free(void* p) {
-	free(((void**)p)[-1]);
+void alignedAllocate_test::alignned_free(void *p)
+{
+    free(((void **) p)[-1]);
 }

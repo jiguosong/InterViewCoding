@@ -1,8 +1,5 @@
 /*
- * reversewords.cpp
- *
- *  Created on: Nov 20, 2016
- *      Author: songjiguo
+   For example, Given s = "the sky is blue", return "blue is sky the".
  */
 
 #include "reversewords.h"

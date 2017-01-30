@@ -1,6 +1,6 @@
 SET(INCLUDED_FILES
-        ../src/alignedAllocate.h 
-        ../src/alignedAllocate.cpp 
+        ../src/alignedAllocate.h
+        ../src/alignedAllocate.cpp
         alignedAllocate_test.cpp
     )
 add_executable(alignedAllocate ${INCLUDED_FILES})

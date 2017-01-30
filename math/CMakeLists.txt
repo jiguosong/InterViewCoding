@@ -1,0 +1,3 @@
+add_subdirectory(Fibonacci)
+add_subdirectory(multiplication_withoutmulti)
+add_subdirectory(sqrtx)

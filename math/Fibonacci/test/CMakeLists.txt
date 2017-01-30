@@ -1,6 +1,6 @@
 SET(INCLUDED_FILES
-        ../src/Fibonacci.h 
-        ../src/Fibonacci.cpp 
+        ../src/Fibonacci.h
+        ../src/Fibonacci.cpp
         Fibonacci_test.cpp
     )
 add_executable(Fibonacci ${INCLUDED_FILES})

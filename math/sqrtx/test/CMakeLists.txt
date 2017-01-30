@@ -1,6 +1,6 @@
 SET(INCLUDED_FILES
-        ../src/sqrtx.h 
-        ../src/sqrtx.cpp 
+        ../src/sqrtx.h
+        ../src/sqrtx.cpp
         sqrtx_test.cpp
     )
 add_executable(sqrtx ${INCLUDED_FILES})

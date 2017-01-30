@@ -7,8 +7,6 @@ Find all the elements that appear twice in this array.
 
 Could you do it without extra space and in O(n) runtime?
 
-
-
 Example:
 
 Input:
