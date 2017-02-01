@@ -33,16 +33,16 @@ void combination_sum4::dummy()
 {
 }
 
-int combination_sum4::combinationSum4(vector<int>& nums, int target)
+int combination_sum4::combinationSum4(vector<int> &nums, int target)
 {
-	vector<int> dp(target+1, 0);
-	dp[0] = 1;
+    vector<int> dp(target + 1, 0);
+    dp[0] = 1;
 
-	for(int i = 1; i <= target; ++i) {
-		for(auto e:nums) {
-			if(i >= e) dp[i] += dp[i-e];
-		}
-	}
+    for (int i = 1; i <= target; ++i) {
+        for (int j = 0; j < nums.size(); ++j) {
+            if (i >= nums[j]) dp[i] = dp[i] + dp[i - nums[j]];
+        }
+    }
 
-	return dp[target];
+    return dp[target];
 }

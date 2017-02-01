@@ -104,6 +104,5 @@ int main(int argc, char *argv[])
     dwData = MAKELONG(wLow, wHigh);
     printf("wLow=0x%xh,wHigh=0x%xh,dwData=0x%xh\n", wLow, wHigh, dwData);
 
-    getchar();
     return 0;
 }

@@ -13,6 +13,24 @@
 
     Note:
     You may assume that you have an infinite number of each kind of coin.
+
+    http://comproguide.blogspot.com/2013/12/minimum-coin-change-problem.html
+
+    Given a set of denominations and an amount, how do we minimize the number of coins to make up the given amount?
+
+    Let us consider the set of denominations {1,3,4}. Also assume that we have infinite supply of coins for each denomination. To make change for 6, we can have three combinations
+    {1,1,4}
+    {1,1,1,3}
+    {3,3}
+    The minimum number of coins to make change for 6 is '2'.
+
+    This problem can be efficiently solved using dynamic programming approach. Let us formulate the problem in terms of it's sub-problems.
+
+    Let the amount be T and the given denominations are {d1,d2,...dn}. Create an array of size (T+1) denoted by MC[].
+    MC[K] denotes the minimum number coins required for amount K. It can be defined as follows
+
+    Min{ MC[K-d1], MC[K-d2],...MC[K-dn] } + 1
+    This means that we can find the solution of a problem from it's sub-problems and it has optimal sub-structure property suggesting the dynamic programming solution.
 */
 
 #include <climits>

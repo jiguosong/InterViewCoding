@@ -1,3 +1,6 @@
 add_subdirectory(Fibonacci)
 add_subdirectory(multiplication_withoutmulti)
 add_subdirectory(sqrtx)
+add_subdirectory(perfectsqaure)
+
+add_subdirectory(numsperfectsqaure)

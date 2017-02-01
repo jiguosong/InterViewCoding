@@ -1,11 +1,4 @@
 /*
- * floatingpoint.cpp
- *
- *  Created on: Dec 6, 2016
- *      Author: songjiguo
- */
-
-/*
 
  Precision	Total Length (bits)	Sign (bits)	Exponent (bits)	Mantissa (bits)
   	Single 	32 	1 	8 	23
