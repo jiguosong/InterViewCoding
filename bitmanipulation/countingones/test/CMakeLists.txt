@@ -1,6 +1,6 @@
 SET(INCLUDED_FILES
-        ../src/countingones.h 
-        ../src/countingones.cpp 
+        ../src/countingones.h
+        ../src/countingones.cpp
         countingones_test.cpp
     )
 add_executable(countingones ${INCLUDED_FILES})

@@ -1,6 +1,6 @@
 SET(INCLUDED_FILES
-        ../src/reversenumber.h 
-        ../src/reversenumber.cpp 
+        ../src/reversenumber.h
+        ../src/reversenumber.cpp
         reversenumber_test.cpp
     )
 add_executable(reversenumber ${INCLUDED_FILES})
