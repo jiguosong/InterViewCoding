@@ -4,3 +4,4 @@ add_subdirectory(sqrtx)
 add_subdirectory(perfectsqaure)
 
 add_subdirectory(numsperfectsqaure)
+add_subdirectory(pointintriangle)

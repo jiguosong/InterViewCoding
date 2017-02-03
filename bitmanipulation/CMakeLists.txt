@@ -1,0 +1,5 @@
+add_subdirectory(isPalindromInteger)
+add_subdirectory(hammingdistance)
+add_subdirectory(findmaxwithoutcomparison)
+add_subdirectory(cardhandmask)
+add_subdirectory(memorylimits)

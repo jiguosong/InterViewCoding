@@ -15,8 +15,8 @@ int numsperfectsqaure::numSqaures(int n)
     vector<int> dp(n + 1, INT_MAX);
     dp[0] = 0;
 
-    for (int i = 1; i <= n; ++i) {   // coin  (at least one coin)
-        for (int j = 1; j <= n; ++j) {    // value
+    for (int i = 1; i <= n; ++i) {   // similar as coin  (at least one coin)
+        for (int j = 1; j <= n; ++j) {    // similar as coin value
             if (j >= i * i) dp[j] = std::min(dp[j], dp[j - i * i] + 1);
         }
     }
