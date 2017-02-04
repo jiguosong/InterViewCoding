@@ -1,6 +1,6 @@
 SET(INCLUDED_FILES
-        ../src/median_datastream.h 
-        ../src/median_datastream.cpp 
+        ../src/median_datastream.h
+        ../src/median_datastream.cpp
         median_datastream_test.cpp
     )
 add_executable(median_datastream ${INCLUDED_FILES})

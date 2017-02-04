@@ -1,6 +1,6 @@
 SET(INCLUDED_FILES
-        ../src/findstreammedian.h 
-        ../src/findstreammedian.cpp 
+        ../src/findstreammedian.h
+        ../src/findstreammedian.cpp
         findstreammedian_test.cpp
     )
 add_executable(findstreammedian ${INCLUDED_FILES})

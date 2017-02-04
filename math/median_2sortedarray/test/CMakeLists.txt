@@ -1,6 +1,6 @@
 SET(INCLUDED_FILES
-        ../src/median_2sortedarray.h 
-        ../src/median_2sortedarray.cpp 
+        ../src/median_2sortedarray.h
+        ../src/median_2sortedarray.cpp
         median_2sortedarray_test.cpp
     )
 add_executable(median_2sortedarray ${INCLUDED_FILES})
