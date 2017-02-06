@@ -1,10 +1,3 @@
-/*
- * reverse_int.cpp
- *
- *  Created on: Nov 5, 2016
- *      Author: songjiguo
- */
-
 #include <iostream>
 #include <limits>
 #include <bitset>

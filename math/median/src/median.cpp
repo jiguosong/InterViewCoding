@@ -2,6 +2,7 @@
     http://ndevilla.free.fr/median/median/index.html
 */
 
+#include <algorithm>
 #include "median.h"
 
 int median::findMedian(vector<int> nums)
@@ -16,6 +17,11 @@ int median::findMedian(vector<int> nums)
 
 int median::findKthSmallest(vector<int> nums, int k)
 {
+
+//    // in C++ we can use nthelement
+//    std::nth_element(nums.begin(), nums.begin() + k, nums.end());
+//    return nums[k];
+
     int sz = nums.size();
     int lo = 0;
     int hi = sz - 1;

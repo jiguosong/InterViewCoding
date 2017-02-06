@@ -23,4 +23,3 @@ cotire(convert_datatype)
 
 add_subdirectory(ReadData)
 add_subdirectory(randomMonteCarlo)
-add_subdirectory(alignedAllocate)

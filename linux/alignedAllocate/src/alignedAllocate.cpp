@@ -2,8 +2,8 @@
 #include "alignedAllocate.h"
 
 /*
-For a more generic memory allocation function, the caller doesn't want to have to keep track of two pointers (one to use and one to free).
-So you store a pointer to the 'real' buffer below the aligned buffer.
+For a more generic memory allocation function, the caller doesn't want to have to keep track of two
+pointers (one to use and one to free). So you store a pointer to the 'real' buffer below the aligned buffer.
 
 Steps:
 1. We will use malloc routine provided by C to implement the functionality.
@@ -23,6 +23,8 @@ Steps:
    which will be required by aligned_free.
 
 5. Return p2.
+
+
 */
 
 void *alignedAllocate_test::alignedAllocate(uint32_t sizeInBytes, uint32_t alignment)

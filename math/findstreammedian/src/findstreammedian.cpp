@@ -3,35 +3,40 @@
 #include <iostream>
 
 /*
-To keep the explanation brief, you can efficiently augment a BST to select a key of a specified rank in O(h)
-by having each node store the number of nodes in its left subtree. If you can guarantee that the tree is balanced,
-you can reduce this to O(log(n)). Consider using an AVL which is height-balanced (or red-black tree which is roughly
-balanced), then you can select any key in O(log(n)). When you insert or delete a node into the AVL you can increment
-or decrement a variable that keeps track of the total number of nodes in the tree to determine the rank of the median
-which you can then select in O(log(n)).
+To keep the explanation brief, you can efficiently augment a BST to select a key of a specified rank in
+ O(h) by having each node store the number of nodes in its left subtree. If you can guarantee that the
+ tree is balanced, you can reduce this to O(log(n)). Consider using an AVL which is height-balanced
+ (or red-black tree which is roughly balanced), then you can select any key in O(log(n)). When you
+ insert or delete a node into the AVL, you can increment or decrement a variable that keeps track of
+ the total number of nodes in the tree to determine the rank of the median which you can then select
+ in O(log(n)).
 */
 
 
 /*
-Although wrang-wrang already answered, I wish to describe a modification of your binary search tree method that is sub-linear.
+  Although wrang-wrang already answered, I wish to describe a modification of your binary search tree method that is sub-linear.
 
-    We use a binary search tree that is balanced (AVL/Red-Black/etc), but not super-balanced like you described. So adding an item is O(log n)
-    One modification to the tree: for every node we also store the number of nodes in its subtree. This doesn't change the complexity. (For a leaf this count would be 1, for a node with two leaf children this would be 3, etc)
+  We use a binary search tree that is balanced (AVL/Red-Black/etc), but not super-balanced like you described.
+  So adding an item is O(log n)  One modification to the tree: for every node we also store the
+  number of nodes in its subtree. This doesn't change the complexity. (For a leaf this count would be 1, for a node with
+  two leaf children this would be 3, etc)
 
-We can now access the Kth smallest element in O(log n) using these counts:
+  We can now access the Kth smallest element in O(log n) using these counts:
 
-def get_kth_item(subtree, k):
-  left_size = 0 if subtree.left is None else subtree.left.size
-  if k < left_size:
-    return get_kth_item(subtree.left, k)
-  elif k == left_size:
-    return subtree.value
-  else: # k > left_size
-    return get_kth_item(subtree.right, k-1-left_size)
+	def get_kth_item(subtree, k):
+	  left_size = 0 if subtree.left is None else subtree.left.size
+	  if k < left_size:
+		return get_kth_item(subtree.left, k)
+	  elif k == left_size:
+		return subtree.value
+	  else: # k > left_size
+		return get_kth_item(subtree.right, k-1-left_size)
 
-A median is a special case of Kth smallest element (given that you know the size of the set).
+	A median is a special case of Kth smallest element (given that you know the size of the set).
 
-So all in all this is another O(log n) solution.*/
+	So all in all this is another O(log n) solution.
+
+ */
 
 
 

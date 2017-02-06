@@ -14,18 +14,18 @@ unsigned long long multiplication_withoutmulti::Multiplication(int a, int b)
     unsigned long long res = 0;
     unsigned long long aa = (unsigned long long) a;  // left shift will overflow, so we do this
 
-    // b*a = (b/2)*(a*2); and if odd, b can always be thought as (2n+1)
-    while (b) {
-        if (b & 1) res = Add(res, aa);
-        b >>= 1;
-        aa <<= 1;
+    // a*b = (a/2)*(b*2); and if odd, a can be thought as (2n+1)
+    while (a) {
+        if (a & 1) res = Add(res, b);
+        b <<= 1;
+        a >>= 1;
     }
 
     return res;
 }
 
 
- // with the following function, there is no arithmetic operation anymore. All bitwise.
+// with the following function, there is no arithmetic operation anymore. All bitwise.
 unsigned long long multiplication_withoutmulti::Add(unsigned long long a, unsigned long long b)
 {
     while (b) {
