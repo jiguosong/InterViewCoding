@@ -183,6 +183,15 @@ TEST(countingones, normal1)
 	cout << tc.countOnes(234) << endl;
 }
 
+TEST(countingones, normal2)
+{
+	countingones tc;
+
+	cout << endl;
+	cout << tc.countOnes2(234) << endl;
+}
+
+
 GTEST_API_ int main(int argc, char **argv)
 {
 	::testing::InitGoogleTest(&argc, argv);

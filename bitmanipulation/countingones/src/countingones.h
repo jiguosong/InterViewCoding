@@ -10,6 +10,7 @@ using std::string;
 class countingones {
 public:
     int countOnes(int n);
+    int countOnes2(int n);
 private:
 
 };

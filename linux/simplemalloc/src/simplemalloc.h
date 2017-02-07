@@ -13,7 +13,7 @@ public:
 
     void myfree(void *ptr);
 
-    simplemalloc(uint32_t align_size = 32)
+    simplemalloc(uint32_t align_size)
     {
         freeblock_listhead.size = 0;
         freeblock_listhead.next = nullptr;

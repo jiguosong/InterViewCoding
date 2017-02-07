@@ -1,6 +1,6 @@
 SET(INCLUDED_FILES
-        ../src/uniquecharsofstring.h 
-        ../src/uniquecharsofstring.cpp 
+        ../src/uniquecharsofstring.h
+        ../src/uniquecharsofstring.cpp
         uniquecharsofstring_test.cpp
     )
 add_executable(uniquecharsofstring ${INCLUDED_FILES})

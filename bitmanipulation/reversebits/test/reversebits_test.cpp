@@ -22,6 +22,17 @@ TEST(testcase_OK, revserse_bits)
     EXPECT_EQ(x, c.reverseBits(res));
 }
 
+TEST(testcase_OK, revserse_bits2)
+{
+    solution c;
+    unsigned char x = 200;
+
+    std::cout << std::endl;
+    std::cout << "c = " << std::bitset<8>(x) << std::endl;
+    unsigned char res = c.reverseBits2(x);
+    std::cout << "c = " << std::bitset<8>(res) << std::endl;
+
+}
 GTEST_API_ int main(int argc, char **argv)
 {
     ::testing::InitGoogleTest(&argc, argv);

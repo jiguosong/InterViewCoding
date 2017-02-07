@@ -1,6 +1,6 @@
 SET(INCLUDED_FILES
-        ../src/reversewords.h 
-        ../src/reversewords.cpp 
+        ../src/reversewords.h
+        ../src/reversewords.cpp
         reversewords_test.cpp
     )
 add_executable(reversewords ${INCLUDED_FILES})

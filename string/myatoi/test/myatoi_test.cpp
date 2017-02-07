@@ -97,7 +97,7 @@ using namespace std;
 
 using namespace std;
 
-#include "../src/simplemalloc.h"
+#include "../src/myatoi.h"
 
 /*
  Choose auto x when you want to work with copies.
@@ -176,20 +176,12 @@ string gen_random(const int len)
     return str;
 }
 
-TEST(simplemalloc, normal1)
+TEST(myatoi, normal1)
 {
-    int alignment = 64;
-    simplemalloc tc(alignment);
+    myatoi tc;
 
-    char *p = (char *) tc.mymalloc(1024);
-    printf("%p\n", p);
-    ASSERT_EQ((int) p % alignment, 0);
+    cout << tc.Atoi("-12345") << endl;
 
-//    tc.myfree(p);
-//
-//    p = (char *) tc.mymalloc(1024);
-//    printf("%p\n", p);
-//    ASSERT_EQ((int) p % alignment, 0);
 }
 
 GTEST_API_ int main(int argc, char **argv)

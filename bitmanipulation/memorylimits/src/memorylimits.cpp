@@ -5,6 +5,9 @@
 
   1GB = 8 billion bits. So, with those bits, we can map all 4 billion integers (actually,
   2147483648 non-negative integers). We'll use integer arrays a[1+N/32] because an integer has 32bits.
+
+  http://stackoverflow.com/questions/7153659/find-an-integer-not-among-four-billion-given-ones#7153822
+  https://prismoskills.appspot.com/lessons/Programming_Puzzles/Missing_number_in_billion_integers_.jsp
 */
 
 #include "memorylimits.h"

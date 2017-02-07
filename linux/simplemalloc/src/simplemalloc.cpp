@@ -19,16 +19,25 @@ void *simplemalloc::mymalloc(size_t size)
 {
     if (!size) return nullptr;
 
-    size = (size + sizeof(freeblock) + alignment - 1) & (alignment - 1);
+    if ((alignment != 0) && (alignment & (alignment - 1)) != 0) return nullptr;
+
+    // return aligned_alloc(32, 1024);
+    //void *p;
+    //posix_memalign(&p, 16, 1024);
+
+    size = (size + sizeof(freeblock) + alignment - 1);
     freeblock *block = freeblock_listhead.next;
     freeblock **head = &(freeblock_listhead.next);
 
-    while (block) {
+    while (block != 0) {
         if (block->size >= size) {
+            printf("found one\n");
             *head = block->next;
             return ((char *) block) + sizeof(freeblock);
         }
 
+        printf("not found one\n");
+        printf("block->size %d\n", block->size);
         head = &(block->next);
         block = block->next;
     }
@@ -36,13 +45,19 @@ void *simplemalloc::mymalloc(size_t size)
     block = (freeblock *) sbrk(size);
     block->size = size;
 
-    return ((char *) block) + sizeof(freeblock);
+    void *p = (void **) (((size_t) (block) + sizeof(freeblock) + alignment - 1) & ~(alignment - 1));
+    printf("in alloc %p\n", (char *) p);
+    freeblock *test = (freeblock *) ((char *) p - sizeof(freeblock));
+    printf("in alloc test->size %d\n", test->size);
+    return p;
 }
 
 void simplemalloc::myfree(void *ptr)
 {
     if (ptr == nullptr) return;
+    printf("in free %p\n", (char *) ptr);
     freeblock *block = (freeblock *) ((char *) ptr - sizeof(freeblock));
+    printf("in free block->size %d\n", block->size);
     block->next = freeblock_listhead.next;
     freeblock_listhead.next = block;
 }

@@ -1,4 +1,5 @@
 #include <cstdlib>
+#include <unistd.h>
 #include "alignedAllocate.h"
 
 /*
@@ -24,6 +25,24 @@ Steps:
 
 5. Return p2.
 
+ https://sites.google.com/site/ruslancray/lab/bookshelf/interview/ci/low-level/write-an-aligned-malloc-free-function
+ http://stackoverflow.com/questions/600293/how-to-check-if-a-number-is-a-power-of-2#600306
+
+ // Allocate raw memory for a Foo object.  Example of using posix_memalign
+    void *mem;
+    size_t alignment = 0x1000;
+    size_t size = ?;
+    posix_memalign(&mem, alignment, size);
+    // Call the constructor on the allocated memory.
+    Foo *foo = new (mem) Foo(...);
+
+    // Now you have a useable object.
+    foo->some_method();
+
+    // Call destructor without freeing object memory.
+    foo->~Foo();
+    // Free raw memory.
+    free(foo);
 
 */
 
@@ -31,11 +50,14 @@ void *alignedAllocate_test::alignedAllocate(uint32_t sizeInBytes, uint32_t align
 {
     void *p1;  // original block
     void **p2; // aligned block
-    int offset = alignment - 1 + sizeof(void *);
+    if (alignment != 0 && (alignment & (alignment - 1)) != 0) return nullptr;   // must be power 2
+
+    int offset = sizeof(void *) + alignment - 1;
     if ((p1 = (void **) malloc(sizeInBytes + offset)) == nullptr) return nullptr;
     p2 = (void **) (((size_t) (p1) + offset) & ~(alignment - 1));
     p2[-1] = p1;
     return p2;
+
 }
 
 void alignedAllocate_test::alignned_free(void *p)
