@@ -181,6 +181,7 @@ TEST(reversebyteofint, normal1)
 {
     reversebyteofint tc;
 
+
     int a = 0X55AA11BB;
     //std::cout << "a = " << std::bitset<32>(a)  << std::endl;
     //cout << bitset<32>(tc.reverseByte_memory_level(a)) << endl;
@@ -222,6 +223,24 @@ TEST(reversebyteofint, normal3)
 
 }
 
+TEST(reversebyteofint, normal4)
+{
+    cout << endl;
+
+    int a = 0X55AA11BB;
+    int b = 0;
+
+    __asm__ volatile ("mov %1, %%eax;"
+            "bswap %%eax;"
+            "mov %%eax, %0"
+    : "=r" (b)
+    : "r" (a)
+    : "%eax"
+    );
+
+    cout << "test res is " << b << endl;
+
+}
 
 GTEST_API_ int main(int argc, char **argv)
 {

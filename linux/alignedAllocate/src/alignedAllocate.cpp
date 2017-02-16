@@ -64,3 +64,47 @@ void alignedAllocate_test::alignned_free(void *p)
 {
     free(((void **) p)[-1]);
 }
+
+
+typedef struct free_block {
+    size_t size;
+    struct free_block *next;
+} free_block;
+
+static free_block free_block_list_head = {0, 0};
+
+// static const size_t overhead = sizeof(size_t);
+
+// static const size_t align_to = 16;
+
+
+void *alignedAllocate_test::alignedAllocate2(uint32_t sizeInBytes, uint32_t align_to)
+{
+    sizeInBytes = (sizeInBytes + sizeof(free_block) + (align_to - 1)) & ~(align_to - 1);
+    free_block *block = free_block_list_head.next;
+    free_block **head = &(free_block_list_head.next);
+    while (block != 0) {
+        if (block->size >= sizeInBytes) {
+            *head = block->next;
+            return ((char *) block) + sizeof(free_block);
+        }
+        head = &(block->next);
+        block = block->next;
+    }
+
+    block = (free_block *) sbrk(sizeInBytes);
+    block->size = sizeInBytes;
+
+    return ((char *) block) + sizeof(free_block);
+}
+
+void alignedAllocate_test::alignned_free2(void *ptr)
+{
+    free_block *block = (free_block *) (((char *) ptr) - sizeof(free_block));
+    block->next = free_block_list_head.next;
+    free_block_list_head.next = block;
+}
+
+
+
+

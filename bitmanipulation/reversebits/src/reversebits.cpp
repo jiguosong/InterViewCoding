@@ -1,5 +1,6 @@
 #include <cstdint>
 #include <bitset>
+#include <iostream>
 #include "reversebits.h"
 
 uint32_t solution::reverseBits(uint32_t n)
@@ -26,13 +27,33 @@ uint32_t solution::reverseBits(uint32_t n)
 
 }
 
-unsigned char solution::reverseBits2(unsigned char n)
-{
-    n = (n & 0x55) << 1 | (n & 0xAA) >> 1;
-    n = (n & 0x33) << 2 | (n & 0xCC) >> 2;
-    n = (n & 0x0F) << 4 | (n & 0xF0) >> 4;
+#   define R2(n)     n,     n + 2*64,     n + 1*64,     n + 3*64
+#   define R4(n) R2(n), R2(n + 2*16), R2(n + 1*16), R2(n + 3*16)
+#   define R6(n) R4(n), R4(n + 2*4 ), R4(n + 1*4 ), R4(n + 3*4 )
 
-    return n;
+static const unsigned char BitReverseTable256[256] = {R6(0), R6(2), R6(1), R6(3)};
+
+uint32_t solution::reverseBits2(uint32_t n)
+{
+    unsigned int v = n; // reverse 32-bit value, 8 bits at time
+    unsigned int c; // c will get v reversed
+
+    std::cout << std::endl;
+    for (int i = 0; i < 256; i++) {
+        std::cout << static_cast<unsigned>(BitReverseTable256[i]) << " ";
+        std::cout << static_cast<unsigned>(BitReverseTable256[i]) << " ";
+        std::cout << static_cast<unsigned>(BitReverseTable256[i]) << " ";
+    }
+    std::cout << std::endl;
+
+    c = (BitReverseTable256[v & 0xff] << 24) |
+        (BitReverseTable256[(v >> 8) & 0xff] << 16) |
+        (BitReverseTable256[(v >> 16) & 0xff] << 8) |
+        (BitReverseTable256[(v >> 24) & 0xff]);
+
+    return c;
 }
+
+
 
 

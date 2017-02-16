@@ -10,6 +10,10 @@ public:
     void *alignedAllocate(uint32_t sizeInBytes, uint32_t alignment);
 
     void alignned_free(void *p);
+
+    void *alignedAllocate2(uint32_t sizeInBytes, uint32_t alignment);
+
+    void alignned_free2(void *p);
 };
 
 

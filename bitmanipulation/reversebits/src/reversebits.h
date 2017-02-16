@@ -12,7 +12,7 @@ class solution {
 public:
     uint32_t reverseBits(uint32_t n);
 
-    unsigned char reverseBits2(unsigned char n);
+    uint32_t reverseBits2(uint32_t n);
 };
 
 

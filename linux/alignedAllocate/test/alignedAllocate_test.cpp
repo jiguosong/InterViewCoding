@@ -22,8 +22,23 @@ TEST(testcase_OK1, alignedAllocate)
 
     int *p = (int *) c.alignedAllocate(sizeInBytes, alignment);
     ASSERT_EQ((int) p % alignment, 0);
-    printf("%p\n", p);
+    printf("%p\n\n", p);
     c.alignned_free(p);
+    p = nullptr;
+}
+
+TEST(testcase_OK1, alignedAllocate2)
+{
+    alignedAllocate_test c;
+
+    size_t sizeInBytes = 1999;
+    size_t alignment = 32;
+
+    int *p = (int *) c.alignedAllocate2(sizeInBytes, alignment);
+    printf("%p\n", p);
+    ASSERT_EQ((int) p % alignment, 0);
+
+    c.alignned_free2(p);
     p = nullptr;
 }
 

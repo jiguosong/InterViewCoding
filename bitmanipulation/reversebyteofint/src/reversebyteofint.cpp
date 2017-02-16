@@ -12,8 +12,6 @@ uint32_t reversebyteofint::reverseByte_memory_level(uint32_t num)
         uint32_t n;
     } bytes;
 
-    bytes.n = num;
-
     bytes.d[0] = bytes.d[0] ^ bytes.d[3];
     bytes.d[3] = bytes.d[0] ^ bytes.d[3];
     bytes.d[0] = bytes.d[0] ^ bytes.d[3];
